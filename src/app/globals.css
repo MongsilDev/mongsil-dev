@@ -21,9 +21,9 @@
 }
 
 /* ── 풀페이지 스크롤 스냅 ──────────────────────────────────────
-   데스크톱만 proximity(덜 답답). 모바일·reduced-motion은 일반 스크롤. */
+   데스크톱은 mandatory(칸이 딱딱 넘어감). 모바일·reduced-motion은 일반 스크롤. */
 html {
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   background: var(--color-ink);
 }
