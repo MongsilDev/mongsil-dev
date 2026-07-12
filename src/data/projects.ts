@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     name: "bori.wiki",
     blurb: "이터널 리턴 이스포츠 위키",
-    stack: "MediaWiki 1.43 · PHP 8.3 · MariaDB",
+    stack: "MediaWiki 1.43 · MariaDB 12.0",
     href: "https://bori.wiki",
     live: true,
     since: "2023-06-01",
