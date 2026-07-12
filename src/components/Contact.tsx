@@ -2,7 +2,7 @@ import { Section } from "./Section";
 
 export function Contact() {
   return (
-    <Section className="py-20">
+    <Section id="contact" className="py-20">
       <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
         <span aria-hidden="true" className="text-ember">/</span> 연락
       </h2>

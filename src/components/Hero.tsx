@@ -3,7 +3,17 @@ import { Section } from "./Section";
 
 export function Hero() {
   return (
-    <Section className="relative">
+    <Section id="top" className="relative isolate">
+      {/* 워드마크 뒤 극미묘한 앰버 글로우 (장식) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(55% 45% at 32% 46%, color-mix(in oklab, var(--color-ember) 11%, transparent), transparent 70%)",
+        }}
+      />
+
       <p
         className="rise flex items-center gap-2 font-mono text-sm text-muted"
         style={{ transitionDelay: "0ms" }}
