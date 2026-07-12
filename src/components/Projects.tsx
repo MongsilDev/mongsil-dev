@@ -2,10 +2,11 @@ import { projects, type Project } from "@/data/projects";
 import { Dot } from "./StatusDot";
 import { Section } from "./Section";
 import { Uptime } from "./Uptime";
+import { ScrollCue } from "./ScrollCue";
 
 export function Projects() {
   return (
-    <Section id="work" className="py-20">
+    <Section id="work" className="relative py-20">
       <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
         <span aria-hidden="true" className="text-ember">/</span> work
       </h2>
@@ -17,6 +18,8 @@ export function Projects() {
           </li>
         ))}
       </ul>
+
+      <ScrollCue href="#contact" label="contact" />
     </Section>
   );
 }

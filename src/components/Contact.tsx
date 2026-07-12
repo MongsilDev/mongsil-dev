@@ -1,8 +1,9 @@
 import { Section } from "./Section";
+import { ScrollCue } from "./ScrollCue";
 
 export function Contact() {
   return (
-    <Section id="contact" className="py-20">
+    <Section id="contact" className="relative py-20">
       <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
         <span aria-hidden="true" className="text-ember">/</span> contact
       </h2>
@@ -15,6 +16,8 @@ export function Contact() {
       <p className="mt-16 font-mono text-xs text-muted">
         made in seoul · 2026
       </p>
+
+      <ScrollCue href="#top" label="top" up />
     </Section>
   );
 }
