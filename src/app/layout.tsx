@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mongsil.dev"),
   title: "mongsil — 봇 만들고 위키 굴리는 사람",
   description:
-    "이터널 리턴을 조금 더 편하게 즐기려고 위키랑 디스코드 봇을 만듭니다.",
+    "봇 만들고 위키 굴리는 사람. 봇이든 웹이든 필요한 건 그냥 만듭니다.",
   openGraph: {
     title: "mongsil",
     description: "봇 만들고 위키 굴리는 사람",

@@ -7,7 +7,7 @@ export function Projects() {
   return (
     <Section id="work" className="py-20">
       <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-        <span aria-hidden="true" className="text-ember">/</span> 굴리는 것들
+        <span aria-hidden="true" className="text-ember">/</span> work
       </h2>
 
       <ul className="mt-8 grid gap-4 sm:grid-cols-2">

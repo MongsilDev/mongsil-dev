@@ -40,7 +40,7 @@ export function Hero() {
         className="rise mt-3 max-w-md font-body text-base text-muted"
         style={{ transitionDelay: "220ms" }}
       >
-        이터널 리턴을 조금 더 편하게 즐기려고 이것저것 만듭니다.
+        봇이든 웹이든, 필요한 건 그냥 만듭니다.
       </p>
 
       <a
@@ -48,7 +48,7 @@ export function Hero() {
         className="rise absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-xs text-muted transition-colors hover:text-ember"
         style={{ transitionDelay: "320ms" }}
       >
-        ↓ 굴리는 것들
+        ↓ work
       </a>
     </Section>
   );
