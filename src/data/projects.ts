@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     name: "bori.wiki",
     blurb: "이터널 리턴 이스포츠 위키",
-    stack: "mediawiki",
+    stack: "MediaWiki 1.43 · PHP 8.3 · MariaDB",
     href: "https://bori.wiki",
     live: true,
     since: "2023-06-01",
@@ -20,7 +20,7 @@ export const projects: Project[] = [
   {
     name: "mongsilbot",
     blurb: "이터널 리턴 전적·정보 디스코드 봇",
-    stack: "python · discord",
+    stack: "Python 3.12 · discord.py 2.7",
     href: "https://discord.com/discovery/applications/1118780504490131557",
     live: true,
     since: "2023-09-01",
