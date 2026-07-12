@@ -7,8 +7,6 @@ export type Project = {
   since: string; // 가동 시작일 (ISO). 카드 uptime 계산용
 };
 
-// TODO(mongsil): mongsilbot의 공개 링크가 있으면 href에 넣기 (디스코드 봇 초대 링크 등).
-//                지금은 "" 라 링크 없이 정보만 표시됨.
 // TODO(mongsil): since를 각 프로젝트 실제 가동 시작일로 교체 (지금은 placeholder → uptime 가짜).
 export const projects: Project[] = [
   {
@@ -23,7 +21,7 @@ export const projects: Project[] = [
     name: "mongsilbot",
     blurb: "이터널 리턴 전적·정보 디스코드 봇",
     stack: "python · discord",
-    href: "",
+    href: "https://discord.com/discovery/applications/1118780504490131557",
     live: true,
     since: "2023-09-01",
   },
