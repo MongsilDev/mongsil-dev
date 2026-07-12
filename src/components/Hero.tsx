@@ -44,7 +44,7 @@ export function Hero() {
         className="rise mt-3 max-w-md font-body text-base text-muted"
         style={{ transitionDelay: "220ms" }}
       >
-        디스코드 봇과 이터널 리턴 위키를, 집에 있는 시놀로지 한 대로.
+        디스코드 봇이랑 이터널 리턴 위키를 집에 있는 시놀로지 한 대로 돌립니다.
       </p>
 
       <a
