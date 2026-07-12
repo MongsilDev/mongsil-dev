@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static"; // 정적 export 시 빌드 타임에 PNG 생성
-export const alt = "mongsil — makes bots, runs a wiki";
+export const alt = "Mongsil — makes bots, runs a wiki";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -50,7 +50,7 @@ export default function OpengraphImage() {
             color: "#ece7de",
           }}
         >
-          mongsil
+          Mongsil
         </div>
         <div style={{ display: "flex", fontSize: 44, marginTop: 4, color: "#f2a25c" }}>
           makes bots, runs a wiki

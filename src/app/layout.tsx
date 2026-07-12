@@ -42,11 +42,11 @@ const korean = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mongsil.dev"),
-  title: "mongsil — 봇 만들고 위키 굴리는 사람",
+  title: "Mongsil — 봇 만들고 위키 굴리는 사람",
   description:
     "봇 만들고 위키 굴리는 사람. 봇이든 웹이든 필요한 건 그냥 만듭니다.",
   openGraph: {
-    title: "mongsil",
+    title: "Mongsil",
     description: "봇 만들고 위키 굴리는 사람",
     type: "website",
     locale: "ko_KR",

@@ -14,7 +14,7 @@ export function Contact() {
       </ul>
 
       <p className="mt-16 font-mono text-xs text-muted">
-        © 2026 mongsil
+        © 2026 Mongsil
       </p>
 
       <ScrollCue href="#top" label="top" up />

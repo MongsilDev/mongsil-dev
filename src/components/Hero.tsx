@@ -27,7 +27,7 @@ export function Hero() {
         className="rise mt-6 font-display text-[clamp(3.5rem,14vw,9rem)] font-extrabold leading-[0.92] tracking-[-0.03em] text-bone"
         style={{ transitionDelay: "80ms" }}
       >
-        mongsil
+        Mongsil
       </h1>
 
       <p
