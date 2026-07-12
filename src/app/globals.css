@@ -13,8 +13,9 @@
   --color-live: #84c7a0; /* running 점 (아주 절제) */
 
   /* next/font(--f-*)를 각 폴백 스택으로 감쌈 */
-  --font-display: var(--f-display), "Apple SD Gothic Neo", Pretendard, system-ui, sans-serif;
-  --font-body: var(--f-body), "Apple SD Gothic Neo", Pretendard, system-ui, sans-serif;
+  /* 라틴은 앞의 웹폰트, 한글은 그 다음 나눔고딕이 담당 (글리프 없는 문자만 폴백됨) */
+  --font-display: var(--f-display), var(--f-korean), "Apple SD Gothic Neo", system-ui, sans-serif;
+  --font-body: var(--f-body), var(--f-korean), "Apple SD Gothic Neo", system-ui, sans-serif;
   --font-mono: var(--f-mono), "SFMono-Regular", ui-monospace, monospace;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* 강한 ease-out (emil) */

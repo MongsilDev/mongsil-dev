@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  Hanken_Grotesk,
+  IBM_Plex_Mono,
+} from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 // Display — 개성 있는 그로테스크 (워드마크·섹션 헤더)
@@ -21,6 +26,17 @@ const mono = IBM_Plex_Mono({
   variable: "--f-mono",
   weight: ["400", "500"],
   subsets: ["latin"],
+  display: "swap",
+});
+
+// Korean — 모든 한글 텍스트 (나눔고딕, 한글 서브셋 woff2 셀프호스팅)
+// next/font/google은 Nanum Gothic 한글 글리프를 안 받아와서 fontsource woff2를 로컬로 사용
+const korean = localFont({
+  variable: "--f-korean",
+  src: [
+    { path: "./fonts/nanum-gothic-korean-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/nanum-gothic-korean-700.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
 });
 
@@ -47,7 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${display.variable} ${body.variable} ${mono.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable} ${korean.variable}`}
     >
       <body className="min-h-svh bg-ink font-body text-bone antialiased">
         {children}
