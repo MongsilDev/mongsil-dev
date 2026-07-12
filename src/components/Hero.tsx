@@ -1,5 +1,6 @@
 import { Dot } from "./StatusDot";
 import { Section } from "./Section";
+import { LiveStatus } from "./LiveStatus";
 
 export function Hero() {
   return (
@@ -21,6 +22,10 @@ export function Hero() {
         <Dot live />
         <span>집 선반 위에서 셀프호스팅 중</span>
       </p>
+
+      <div className="rise mt-2" style={{ transitionDelay: "40ms" }}>
+        <LiveStatus />
+      </div>
 
       <h1
         className="rise mt-6 font-display text-[clamp(3.5rem,14vw,9rem)] font-extrabold leading-[0.92] tracking-[-0.03em] text-bone"
