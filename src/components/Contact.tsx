@@ -1,21 +1,21 @@
+import { Section } from "./Section";
+
 export function Contact() {
   return (
-    <section className="flex min-h-svh snap-start flex-col justify-center px-6 py-20 sm:px-10">
-      <div className="mx-auto w-full max-w-5xl">
-        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-          <span aria-hidden="true" className="text-ember">/</span> 연락
-        </h2>
+    <Section className="py-20">
+      <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+        <span aria-hidden="true" className="text-ember">/</span> 연락
+      </h2>
 
-        <ul className="mt-8 flex flex-col">
-          <ContactRow label="github.com/MongsilDev" href="https://github.com/MongsilDev" />
-          <ContactRow label="mail@mongsil.dev" href="mailto:mail@mongsil.dev" />
-        </ul>
+      <ul className="mt-8 flex flex-col">
+        <ContactRow label="github.com/MongsilDev" href="https://github.com/MongsilDev" />
+        <ContactRow label="mail@mongsil.dev" href="mailto:mail@mongsil.dev" />
+      </ul>
 
-        <p className="mt-16 font-mono text-xs text-muted">
-          made &amp; hosted at home · 2026
-        </p>
-      </div>
-    </section>
+      <p className="mt-16 font-mono text-xs text-muted">
+        made &amp; hosted at home · 2026
+      </p>
+    </Section>
   );
 }
 

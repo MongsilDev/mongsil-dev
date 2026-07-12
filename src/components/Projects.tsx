@@ -1,26 +1,22 @@
 import { projects, type Project } from "@/data/projects";
 import { Dot } from "./StatusDot";
+import { Section } from "./Section";
 
 export function Projects() {
   return (
-    <section
-      id="work"
-      className="flex min-h-svh snap-start flex-col justify-center px-6 py-20 sm:px-10"
-    >
-      <div className="mx-auto w-full max-w-5xl">
-        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-          <span aria-hidden="true" className="text-ember">/</span> 굴리는 것들
-        </h2>
+    <Section id="work" className="py-20">
+      <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+        <span aria-hidden="true" className="text-ember">/</span> 굴리는 것들
+      </h2>
 
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-          {projects.map((p) => (
-            <li key={p.name} className="reveal">
-              <ProjectCard project={p} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+      <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+        {projects.map((p) => (
+          <li key={p.name} className="reveal">
+            <ProjectCard project={p} />
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }
 
