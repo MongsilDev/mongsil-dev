@@ -4,7 +4,7 @@ export function Contact() {
   return (
     <Section id="contact" className="py-20">
       <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-        <span aria-hidden="true" className="text-ember">/</span> 연락
+        <span aria-hidden="true" className="text-ember">/</span> contact
       </h2>
 
       <ul className="mt-8 flex flex-col">
