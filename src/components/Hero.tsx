@@ -34,13 +34,7 @@ export function Hero() {
         className="rise mt-6 font-body text-xl text-bone sm:text-2xl"
         style={{ transitionDelay: "160ms" }}
       >
-        봇 만들고 위키 굴리는 사람.
-      </p>
-      <p
-        className="rise mt-3 max-w-md font-body text-base text-muted"
-        style={{ transitionDelay: "220ms" }}
-      >
-        봇이든 웹이든, 필요한 건 그냥 만듭니다.
+        이것저것 합니다.
       </p>
 
       <a
