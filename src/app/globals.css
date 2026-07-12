@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── 디자인 토큰 ──────────────────────────────────────────────
+   "warm dusk" — 보라 기운 도는 웜 잉크 + 앰버 액센트 + bone 텍스트.
+   순검정+산성그린(터미널 클리셰) 회피. */
+@theme {
+  --color-ink: #15141b; /* 배경 — 웜 니어블랙 */
+  --color-ink-raised: #1e1c26; /* 카드 표면 */
+  --color-haze: #2a2733; /* 헤어라인·보더 */
+  --color-bone: #ece7de; /* 본문 텍스트 (웜 오프화이트) */
+  --color-muted: #8b8698; /* 보조 텍스트·메타 */
+  --color-ember: #f2a25c; /* 액센트 = 상태등 (앰버) */
+  --color-live: #84c7a0; /* running 점 (아주 절제) */
+
+  /* next/font(--f-*)를 각 폴백 스택으로 감쌈 */
+  --font-display: var(--f-display), "Apple SD Gothic Neo", Pretendard, system-ui, sans-serif;
+  --font-body: var(--f-body), "Apple SD Gothic Neo", Pretendard, system-ui, sans-serif;
+  --font-mono: var(--f-mono), "SFMono-Regular", ui-monospace, monospace;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* 강한 ease-out (emil) */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── 풀페이지 스크롤 스냅 ──────────────────────────────────────
+   데스크톱만 proximity(덜 답답). 모바일·reduced-motion은 일반 스크롤. */
+html {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  background: var(--color-ink);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (max-width: 640px) {
+  html {
+    scroll-snap-type: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+}
+
+/* 텍스트 선택 색 */
+::selection {
+  background: color-mix(in oklab, var(--color-ember) 30%, transparent);
+  color: var(--color-bone);
+}
+
+/* 키보드 포커스 링 — 마우스엔 안 보이고 키보드에만 */
+:focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── 진입 애니메이션 (로드 시) ────────────────────────────────
+   @starting-style — JS 없이. 미지원/reduced-motion 시 그냥 보임(폴백). */
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 700ms var(--ease-out),
+      transform 700ms var(--ease-out);
+
+    @starting-style {
+      opacity: 0;
+      transform: translateY(0.7rem);
+    }
+  }
+}
+
+/* ── 스크롤 구동 등장 (CSS 스크롤 애니, JS 0) ─────────────────
+   미지원 브라우저는 @supports로 건너뜀 → 콘텐츠 그대로 보임. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 34%;
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* reduced-motion 사용자는 모든 모션 무력화 (호버 리프트 포함) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
