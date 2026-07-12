@@ -13,7 +13,7 @@ export function Contact() {
       </ul>
 
       <p className="mt-16 font-mono text-xs text-muted">
-        made &amp; hosted at home · 2026
+        made in seoul · 2026
       </p>
     </Section>
   );

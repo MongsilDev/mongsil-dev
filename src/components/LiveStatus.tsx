@@ -29,11 +29,8 @@ export function LiveStatus() {
   }, []);
 
   return (
-    <p
-      className="font-mono text-xs text-muted tabular-nums"
-      suppressHydrationWarning
-    >
+    <span className="tabular-nums" suppressHydrationWarning>
       {now === null ? "seoul --:--:--" : `seoul ${seoulClock(now)}`}
-    </p>
+    </span>
   );
 }

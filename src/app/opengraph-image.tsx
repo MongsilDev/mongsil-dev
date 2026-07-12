@@ -38,7 +38,7 @@ export default function OpengraphImage() {
               background: "#84c7a0",
             }}
           />
-          self-hosted at home
+          eternal return · seoul
         </div>
         <div
           style={{

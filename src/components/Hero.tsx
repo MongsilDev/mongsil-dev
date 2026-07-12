@@ -16,16 +16,12 @@ export function Hero() {
       />
 
       <p
-        className="rise flex items-center gap-2 font-mono text-sm text-muted"
+        className="rise flex items-center gap-2 font-mono text-xs text-muted"
         style={{ transitionDelay: "0ms" }}
       >
         <Dot live />
-        <span>집 선반 위에서 셀프호스팅 중</span>
-      </p>
-
-      <div className="rise mt-2" style={{ transitionDelay: "40ms" }}>
         <LiveStatus />
-      </div>
+      </p>
 
       <h1
         className="rise mt-6 font-display text-[clamp(3.5rem,14vw,9rem)] font-extrabold leading-[0.92] tracking-[-0.03em] text-bone"
@@ -44,7 +40,7 @@ export function Hero() {
         className="rise mt-3 max-w-md font-body text-base text-muted"
         style={{ transitionDelay: "220ms" }}
       >
-        디스코드 봇이랑 이터널 리턴 위키를 집에 있는 시놀로지 한 대로 돌립니다.
+        이터널 리턴을 조금 더 편하게 즐기려고 이것저것 만듭니다.
       </p>
 
       <a
