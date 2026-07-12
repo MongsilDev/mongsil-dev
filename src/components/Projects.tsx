@@ -1,6 +1,7 @@
 import { projects, type Project } from "@/data/projects";
 import { Dot } from "./StatusDot";
 import { Section } from "./Section";
+import { Uptime } from "./Uptime";
 
 export function Projects() {
   return (
@@ -30,6 +31,9 @@ function ProjectCard({ project }: { project: Project }) {
         <span className="flex items-center gap-1.5 font-mono text-[11px] text-muted">
           <Dot live={project.live} />
           {project.live ? "running" : "idle"}
+          <span className="text-muted/60">
+            · <Uptime since={project.since} />
+          </span>
         </span>
       </div>
 
