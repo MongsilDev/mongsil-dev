@@ -12,15 +12,15 @@ export const projects: Project[] = [
   {
     name: "bori.wiki",
     blurb: "이터널 리턴 이스포츠 위키",
-    stack: "MediaWiki 1.43 · MariaDB 12.0",
+    stack: "MediaWiki 1.43, MariaDB 12.0",
     href: "https://bori.wiki",
     live: true,
     since: "2023-06-01",
   },
   {
     name: "mongsilbot",
-    blurb: "이터널 리턴 전적·정보 디스코드 봇",
-    stack: "Python 3.12 · discord.py 2.7",
+    blurb: "이터널 리턴 전적 조회 디스코드 봇",
+    stack: "Python 3.12, discord.py 2.7",
     href: "https://discord.com/discovery/applications/1118780504490131557",
     live: true,
     since: "2023-09-01",

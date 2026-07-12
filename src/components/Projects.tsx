@@ -35,7 +35,7 @@ function ProjectCard({ project }: { project: Project }) {
           <Dot live={project.live} />
           {project.live ? "running" : "idle"}
           <span className="text-muted/60">
-            · <Uptime since={project.since} />
+            <Uptime since={project.since} />
           </span>
         </span>
       </div>

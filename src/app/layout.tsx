@@ -42,8 +42,8 @@ const korean = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mongsil.dev"),
-  title: "Mongsil — 이것저것 합니다",
-  description: "디스코드 봇, 위키, 웹 — 이것저것 만드는 Mongsil의 개인 페이지.",
+  title: "Mongsil",
+  description: "디스코드 봇, 위키, 웹까지 이것저것 만드는 Mongsil의 개인 페이지.",
   openGraph: {
     title: "Mongsil",
     description: "이것저것 합니다.",
