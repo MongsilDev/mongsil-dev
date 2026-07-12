@@ -94,6 +94,23 @@ html {
   }
 }
 
+/* live 점 — 아주 은은한 숨쉬기 (running = 살아있는 상태등) */
+@media (prefers-reduced-motion: no-preference) {
+  .dot-live {
+    animation: breathe 2.6s ease-in-out infinite;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
 /* reduced-motion 사용자는 모든 모션 무력화 (호버 리프트 포함) */
 @media (prefers-reduced-motion: reduce) {
   *,

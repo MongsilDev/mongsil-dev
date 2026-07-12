@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -35,6 +35,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#15141b", // 모바일 브라우저 상단바를 배경색과 맞춤
 };
 
 export default function RootLayout({
