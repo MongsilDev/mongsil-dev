@@ -1,6 +1,7 @@
 import { Dot } from "./StatusDot";
 import { Section } from "./Section";
 import { LiveStatus } from "./LiveStatus";
+import { ScrollCue } from "./ScrollCue";
 
 export function Hero() {
   return (
@@ -37,13 +38,12 @@ export function Hero() {
         이것저것 합니다.
       </p>
 
-      <a
+      <ScrollCue
         href="#work"
-        className="rise absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-xs text-muted transition-colors hover:text-ember"
+        label="work"
+        className="rise"
         style={{ transitionDelay: "320ms" }}
-      >
-        ↓ work
-      </a>
+      />
     </Section>
   );
 }

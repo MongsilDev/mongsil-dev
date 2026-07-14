@@ -1,17 +1,38 @@
-// 섹션 하단 중앙의 스크롤 안내 (다음/이전 섹션으로). 마지막 섹션은 up=위로.
+"use client";
+
+import type { CSSProperties, MouseEvent } from "react";
+
+// 섹션 하단 중앙의 스크롤 안내. 클릭 시 JS로 스크롤 → URL에 #해시 안 붙음.
+// href는 접근성/JS 미동작 시 폴백용으로 유지.
 export function ScrollCue({
   href,
   label,
   up = false,
+  className = "",
+  style,
 }: {
   href: string;
   label: string;
   up?: boolean;
+  className?: string;
+  style?: CSSProperties;
 }) {
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    const el = document.getElementById(href.replace("#", ""));
+    if (!el) return; // 폴백: 기본 앵커 동작
+    e.preventDefault();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  };
+
   return (
     <a
       href={href}
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-xs text-muted transition-colors hover:text-ember"
+      onClick={handleClick}
+      style={style}
+      className={`absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-xs text-muted transition-colors hover:text-ember${
+        className ? ` ${className}` : ""
+      }`}
     >
       {up ? "↑" : "↓"} {label}
     </a>
