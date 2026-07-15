@@ -8,7 +8,6 @@
 - Tailwind CSS v4
 - 정적 export (`output: 'export'`) — 서버 로직 없음
 - 폰트: Bricolage Grotesque(디스플레이) / Hanken Grotesk(본문) / IBM Plex Mono(메타), 한글은 나눔고딕 셀프호스팅
-- Vercel Analytics + Speed Insights
 
 ## 개발
 
@@ -34,4 +33,14 @@ pnpm lint
 
 ## 배포
 
-Vercel. `main` 브랜치 푸시 시 자동 배포.
+Synology NAS의 nginx 컨테이너가 정적 파일을 서빙하고, Cloudflare Tunnel이 앞단을 맡는다.
+
+```bash
+./deploy/deploy.sh   # 빌드 + NAS 동기화 (컨테이너 재시작 불필요)
+```
+
+- 컨테이너: `mongsil-dev` (nginx:alpine), `127.0.0.1:8082` → 80
+- 정적 파일: `/volume1/docker/mongsil-dev/out` (볼륨 마운트라 파일만 갈면 즉시 반영)
+- nginx 설정: `deploy/nginx.conf`
+  - Next가 메타 이미지를 확장자 없이 내보내므로 `/opengraph-image`·`/apple-icon`의 MIME을 명시해야 한다
+  - 디렉토리를 통째로 교체하면 바인드 마운트가 깨지므로 rsync로 내용만 동기화할 것
