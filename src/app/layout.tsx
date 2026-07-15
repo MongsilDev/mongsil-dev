@@ -5,6 +5,8 @@ import {
   IBM_Plex_Mono,
 } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 // Display — 개성 있는 그로테스크 (워드마크·섹션 헤더)
@@ -43,7 +45,8 @@ const korean = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mongsil.dev"),
   title: "Mongsil",
-  description: "디스코드 봇, 위키, 웹까지 이것저것 만드는 Mongsil의 개인 페이지.",
+  description: "이것저것 합니다.",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Mongsil",
     description: "이것저것 합니다.",
@@ -66,6 +69,8 @@ export default function RootLayout({
     >
       <body className="min-h-svh bg-ink font-body text-bone antialiased">
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
