@@ -27,6 +27,15 @@ html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   background: var(--color-ink);
+
+  /* 스크롤바 숨김 (스크롤 자체는 그대로).
+     위치·이동 표시는 우측 섹션 내비 점과 ↓/↑ 큐가 대신함. */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Chrome / Safari / Edge */
+html::-webkit-scrollbar {
+  display: none;
 }
 
 @media (max-width: 640px) {
