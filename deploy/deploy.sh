@@ -23,6 +23,6 @@ echo "==> nginx 설정 동기화"
 rsync -az deploy/nginx.conf "$HOST:$REMOTE/nginx.conf"
 
 echo "==> 확인"
-ssh "$HOST" "curl -s -o /dev/null -w '  http=%{http_code} type=%{content_type}\n' http://127.0.0.1:8082/"
+ssh "$HOST" "curl -s -o /dev/null -w '  http=%{http_code} type=%{content_type}\n' http://127.0.0.1:8083/"
 
 echo "배포 완료"

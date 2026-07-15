@@ -7,7 +7,9 @@ export type Project = {
   since: string; // 가동 시작일 (ISO). 카드 uptime 계산용
 };
 
-// TODO(mongsil): since를 각 프로젝트 실제 가동 시작일로 교체 (지금은 placeholder → uptime 가짜).
+// since는 실측값:
+//  - bori.wiki : MediaWiki 최초 기록("대문" 생성) 2024-09-30T18:03:50Z
+//  - mongsilbot: Discord 앱 ID(snowflake) 디코드 → 2023-06-15T05:54:18Z
 export const projects: Project[] = [
   {
     name: "bori.wiki",
@@ -15,7 +17,7 @@ export const projects: Project[] = [
     stack: "MediaWiki 1.43, MariaDB 12.0",
     href: "https://bori.wiki",
     live: true,
-    since: "2023-06-01",
+    since: "2024-09-30",
   },
   {
     name: "mongsilbot",
@@ -23,6 +25,6 @@ export const projects: Project[] = [
     stack: "Python 3.12, discord.py 2.7",
     href: "https://discord.com/discovery/applications/1118780504490131557",
     live: true,
-    since: "2023-09-01",
+    since: "2023-06-15",
   },
 ];

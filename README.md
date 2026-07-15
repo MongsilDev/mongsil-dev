@@ -39,7 +39,7 @@ Synology NAS의 nginx 컨테이너가 정적 파일을 서빙하고, Cloudflare 
 ./deploy/deploy.sh   # 빌드 + NAS 동기화 (컨테이너 재시작 불필요)
 ```
 
-- 컨테이너: `mongsil-dev` (nginx:alpine), `127.0.0.1:8082` → 80
+- 컨테이너: `mongsil-dev` (nginx:alpine), `127.0.0.1:8083` → 80
 - 정적 파일: `/volume1/docker/mongsil-dev/out` (볼륨 마운트라 파일만 갈면 즉시 반영)
 - nginx 설정: `deploy/nginx.conf`
   - Next가 메타 이미지를 확장자 없이 내보내므로 `/opengraph-image`·`/apple-icon`의 MIME을 명시해야 한다
