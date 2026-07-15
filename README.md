@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mongsil.dev
 
-## Getting Started
+개인 페이지. 정적 사이트.
 
-First, run the development server:
+## 스택
+
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Tailwind CSS v4
+- 정적 export (`output: 'export'`) — 서버 로직 없음
+- 폰트: Bricolage Grotesque(디스플레이) / Hanken Grotesk(본문) / IBM Plex Mono(메타), 한글은 나눔고딕 셀프호스팅
+- Vercel Analytics + Speed Insights
+
+## 개발
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev     # http://localhost:3000
+pnpm build   # out/ 에 정적 파일 생성
+pnpm lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 구조
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/app/` — layout, page, 404, 메타 라우트(robots / sitemap / opengraph-image / icon / apple-icon)
+- `src/components/` — Hero, Projects, Contact, SectionNav, ScrollCue 등
+- `src/data/projects.ts` — 프로젝트 카드 데이터 (이름·설명·스택·링크·가동 시작일)
+- `src/app/fonts/` — 나눔고딕 한글 woff2
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 구성 메모
 
-## Learn More
+- 풀페이지 스크롤 스냅(데스크톱만 `mandatory`, 모바일·reduced-motion은 일반 스크롤)
+- 프로젝트 카드의 `uptime`은 `projects.ts`의 `since` 날짜 기준으로 계산됨
+- 섹션 이동은 URL에 해시를 남기지 않음 (`ScrollCue`가 JS로 스크롤)
 
-To learn more about Next.js, take a look at the following resources:
+## 배포
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vercel. `main` 브랜치 푸시 시 자동 배포.
