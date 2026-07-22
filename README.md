@@ -1,46 +1,15 @@
-# mongsil.dev
+# mongsil-dev
 
-개인 페이지. 정적 사이트.
+개인 소개 겸 프로젝트 허브 페이지. `mongsil.dev`. 한 페이지 스크롤 사이트로 운영 중인 프로젝트와 연락처를 담으며, 서버 로직 없이 정적 파일만 배포한다.
 
-## 스택
+## 구성
 
-- Next.js 16 (App Router) + React 19 + TypeScript
-- Tailwind CSS v4
-- 정적 export (`output: 'export'`) — 서버 로직 없음
-- 폰트: Bricolage Grotesque(디스플레이) / Hanken Grotesk(본문) / IBM Plex Mono(메타), 한글은 나눔고딕 셀프호스팅
+세 개의 풀페이지 섹션(intro / work / contact). 우측 내비 점과 키보드로 이동한다.
 
-## 개발
+- intro — 워드마크·한 줄 소개, 서울(KST) 실시간 시계
+- work — 프로젝트 카드(스택, 가동 상태등, 가동 일수). 목록은 `src/data/projects.ts`에 정의
+- contact — GitHub·메일 링크
 
-```bash
-pnpm install
-pnpm dev     # http://localhost:3000
-pnpm build   # out/ 에 정적 파일 생성
-pnpm lint
-```
+## 기술 스택
 
-## 구조
-
-- `src/app/` — layout, page, 404, 메타 라우트(robots / sitemap / opengraph-image / icon / apple-icon)
-- `src/components/` — Hero, Projects, Contact, SectionNav, ScrollCue 등
-- `src/data/projects.ts` — 프로젝트 카드 데이터 (이름·설명·스택·링크·가동 시작일)
-- `src/app/fonts/` — 나눔고딕 한글 woff2
-
-## 구성 메모
-
-- 풀페이지 스크롤 스냅(데스크톱만 `mandatory`, 모바일·reduced-motion은 일반 스크롤)
-- 프로젝트 카드의 `uptime`은 `projects.ts`의 `since` 날짜 기준으로 계산됨
-- 섹션 이동은 URL에 해시를 남기지 않음 (`ScrollCue`가 JS로 스크롤)
-
-## 배포
-
-Synology NAS의 nginx 컨테이너가 정적 파일을 서빙하고, Cloudflare Tunnel이 앞단을 맡는다.
-
-```bash
-./deploy/deploy.sh   # 빌드 + NAS 동기화 (컨테이너 재시작 불필요)
-```
-
-- 컨테이너: `mongsil-dev` (nginx:alpine), `127.0.0.1:8083` → 80
-- 정적 파일: `/volume1/docker/mongsil-dev/out` (볼륨 마운트라 파일만 갈면 즉시 반영)
-- nginx 설정: `deploy/nginx.conf`
-  - Next가 메타 이미지를 확장자 없이 내보내므로 `/opengraph-image`·`/apple-icon`의 MIME을 명시해야 한다
-  - 디렉토리를 통째로 교체하면 바인드 마운트가 깨지므로 rsync로 내용만 동기화할 것
+Next.js 16(`output: "export"` 정적 export), React 19, TypeScript, Tailwind CSS v4. 정적 결과물을 nginx가 서빙하고 Cloudflare Tunnel로 `mongsil.dev`에 노출한다.
