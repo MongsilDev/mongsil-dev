@@ -6,9 +6,9 @@
 
 - intro, work, contact 세 개의 풀페이지 섹션으로 이루어진 스크롤 사이트
 - 우측 내비 점 클릭 또는 위아래 방향키, PageUp/Down, Home/End 키로 섹션 이동
-- intro — 워드마크와 한 줄 소개, 서울 시간 기준 실시간 시계
-- work — 프로젝트 카드에 한 줄 설명, 기술 스택, 가동 상태 점, 가동 일수 표시. 목록은 `src/data/projects.ts`에 정의
-- contact — GitHub와 메일 링크
+- intro: 워드마크와 한 줄 소개, 서울 시간 기준 실시간 시계
+- work: 프로젝트 카드에 한 줄 설명, 기술 스택, 가동 상태 점, 가동 일수 표시. 목록은 `src/data/projects.ts`에 정의
+- contact: GitHub와 메일 링크
 
 ## 동작 방식
 
@@ -23,6 +23,6 @@ pnpm install
 # 개발 서버
 pnpm dev
 
-# 정적 빌드 — 결과물은 out/
+# 정적 빌드, 결과물은 out/
 pnpm build
 ```
