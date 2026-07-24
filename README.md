@@ -1,15 +1,28 @@
 # mongsil-dev
 
-개인 소개 겸 프로젝트 허브 페이지. `mongsil.dev`. 한 페이지 스크롤 사이트로 운영 중인 프로젝트와 연락처를 담으며, 서버 로직 없이 정적 파일만 배포한다.
+개인 소개 겸 프로젝트 허브 원페이지 사이트. 서버 로직 없이 정적 파일만으로 동작한다.
 
-## 구성
+## 기능
 
-세 개의 풀페이지 섹션(intro / work / contact). 우측 내비 점과 키보드로 이동한다.
+- intro, work, contact 세 개의 풀페이지 섹션으로 이루어진 스크롤 사이트
+- 우측 내비 점 클릭 또는 위아래 방향키, PageUp/Down, Home/End 키로 섹션 이동
+- intro — 워드마크와 한 줄 소개, 서울 시간 기준 실시간 시계
+- work — 프로젝트 카드에 한 줄 설명, 기술 스택, 가동 상태 점, 가동 일수 표시. 목록은 `src/data/projects.ts`에 정의
+- contact — GitHub와 메일 링크
 
-- intro — 워드마크·한 줄 소개, 서울(KST) 실시간 시계
-- work — 프로젝트 카드(스택, 가동 상태등, 가동 일수). 목록은 `src/data/projects.ts`에 정의
-- contact — GitHub·메일 링크
+## 동작 방식
 
-## 기술 스택
+Next.js 16 App Router를 `output: "export"` 설정으로 빌드해 순수 정적 결과물을 만든다. 시계와 가동 일수는 클라이언트에서 계산해 각각 매초, 매시간 갱신한다. 프로젝트 목록은 코드에 정적으로 정의되어 있어 수정 후 다시 빌드하면 반영된다.
 
-Next.js 16(`output: "export"` 정적 export), React 19, TypeScript, Tailwind CSS v4. 정적 결과물을 nginx가 서빙하고 Cloudflare Tunnel로 `mongsil.dev`에 노출한다.
+## 실행
+
+```bash
+# 의존성 설치
+pnpm install
+
+# 개발 서버
+pnpm dev
+
+# 정적 빌드 — 결과물은 out/
+pnpm build
+```
