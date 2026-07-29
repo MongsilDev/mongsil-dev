@@ -40,17 +40,48 @@ const korean = localFont({
   display: "swap",
 });
 
+const description = "이것저것 합니다.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://mongsil.dev"),
   title: "Mongsil",
-  description: "이것저것 합니다.",
+  description,
+  authors: [{ name: "Mongsil", url: "https://mongsil.dev" }],
   alternates: { canonical: "/" },
   openGraph: {
     title: "Mongsil",
-    description: "이것저것 합니다.",
+    description,
+    url: "/",
+    siteName: "Mongsil",
     type: "website",
     locale: "ko_KR",
   },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://mongsil.dev/#person",
+      name: "Mongsil",
+      alternateName: "몽실",
+      url: "https://mongsil.dev",
+      sameAs: ["https://github.com/MongsilDev"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://mongsil.dev/#website",
+      name: "Mongsil",
+      alternateName: "몽실",
+      url: "https://mongsil.dev",
+      inLanguage: "ko",
+      publisher: { "@id": "https://mongsil.dev/#person" },
+    },
+  ],
 };
 
 export const viewport: Viewport = {
@@ -66,6 +97,12 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable} ${korean.variable}`}
     >
       <body className="min-h-svh bg-ink font-body text-bone antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         {children}
       </body>
     </html>

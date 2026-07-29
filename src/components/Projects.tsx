@@ -28,9 +28,9 @@ function ProjectCard({ project }: { project: Project }) {
   const card = (
     <div className="group flex h-full flex-col rounded-2xl border border-haze bg-ink-raised p-6 transition duration-200 ease-out hover:-translate-y-1 hover:border-ember/50 active:scale-[0.98]">
       <div className="flex items-center justify-between gap-3">
-        <span className="font-display text-2xl font-semibold text-bone">
+        <h3 className="font-display text-2xl font-semibold text-bone">
           {project.name}
-        </span>
+        </h3>
         <span className="flex items-center gap-1.5 font-mono text-[11px] text-muted">
           <Dot live={project.live} />
           {project.live ? "running" : "idle"}
