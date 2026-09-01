@@ -44,6 +44,13 @@ html::-webkit-scrollbar {
   }
 }
 
+/* 404는 한 화면 고정: 스크롤·바운스·스냅 전부 끔 */
+html:has(main[data-page="404"]) {
+  overflow: hidden;
+  overscroll-behavior: none;
+  scroll-snap-type: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-snap-type: none;
