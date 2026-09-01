@@ -26,11 +26,11 @@ export function Projects() {
 function ProjectCard({ project }: { project: Project }) {
   const card = (
     <div className="flex h-full flex-col rounded-3xl bg-ink-raised p-8 transition duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:active:scale-[0.98]">
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
         <h3 className="font-display text-3xl font-semibold tracking-[-0.02em] text-bone">
           {project.name}
         </h3>
-        <span className="flex items-center gap-1.5 font-mono text-xs text-muted">
+        <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap font-mono text-xs text-muted">
           <Dot live={project.live} />
           {project.live ? "running" : "idle"} since {project.since.slice(0, 4)}
         </span>
