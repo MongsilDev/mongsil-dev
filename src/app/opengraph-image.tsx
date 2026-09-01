@@ -52,9 +52,6 @@ export default function OpengraphImage() {
         >
           Mongsil
         </div>
-        <div style={{ display: "flex", fontSize: 44, marginTop: 4, color: "#f2a25c" }}>
-          makes things
-        </div>
       </div>
     ),
     size,

@@ -1,7 +1,6 @@
 import { projects, type Project } from "@/data/projects";
 import { Dot } from "./StatusDot";
 import { Section } from "./Section";
-import { Uptime } from "./Uptime";
 import { ScrollCue } from "./ScrollCue";
 
 export function Projects() {
@@ -26,28 +25,25 @@ export function Projects() {
 
 function ProjectCard({ project }: { project: Project }) {
   const card = (
-    <div className="group flex h-full flex-col rounded-2xl border border-haze bg-ink-raised p-6 transition duration-200 ease-out hover:-translate-y-1 hover:border-ember/50 active:scale-[0.98]">
+    <div className="flex h-full flex-col rounded-3xl bg-ink-raised p-8 transition duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:active:scale-[0.98]">
       <div className="flex items-center justify-between gap-3">
-        <h3 className="font-display text-2xl font-semibold text-bone">
+        <h3 className="font-display text-3xl font-semibold tracking-[-0.02em] text-bone">
           {project.name}
         </h3>
-        <span className="flex items-center gap-1.5 font-mono text-[11px] text-muted">
+        <span className="flex items-center gap-1.5 font-mono text-xs text-muted">
           <Dot live={project.live} />
-          {project.live ? "running" : "idle"}
-          <span className="text-muted/60">
-            <Uptime since={project.since} />
-          </span>
+          {project.live ? "running" : "idle"} since {project.since.slice(0, 4)}
         </span>
       </div>
 
-      <p className="mt-2 font-body text-[15px] text-bone/85">{project.blurb}</p>
+      <p className="mt-2 font-body text-base text-bone">{project.blurb}</p>
 
-      <div className="mt-auto flex items-center justify-between pt-6">
+      <div className="mt-auto flex items-center justify-between pt-8">
         <span className="font-mono text-xs text-muted">{project.stack}</span>
         {project.href && (
           <span
             aria-hidden="true"
-            className="font-mono text-sm text-muted transition-colors group-hover:text-ember"
+            className="font-mono text-sm text-muted transition-colors group-hover:text-ember group-focus-visible:text-ember"
           >
             →
           </span>
@@ -62,7 +58,7 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <a
       href={project.href}
-      className="block h-full"
+      className="group block h-full rounded-3xl"
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {card}

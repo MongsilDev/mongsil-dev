@@ -24,7 +24,7 @@ const body = Hanken_Grotesk({
 // Mono — 상태·호스트 메타 (운영자 감성)
 const mono = IBM_Plex_Mono({
   variable: "--f-mono",
-  weight: ["400", "500"],
+  weight: ["400"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -35,7 +35,6 @@ const korean = localFont({
   variable: "--f-korean",
   src: [
     { path: "./fonts/nanum-gothic-korean-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/nanum-gothic-korean-700.woff2", weight: "700", style: "normal" },
   ],
   display: "swap",
 });

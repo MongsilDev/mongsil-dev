@@ -18,7 +18,7 @@ export function Hero() {
 
       <p
         className="rise flex items-center gap-2 font-mono text-xs text-muted"
-        style={{ transitionDelay: "0ms" }}
+        style={{ animationDelay: "0ms" }}
       >
         <Dot live />
         <LiveStatus />
@@ -26,14 +26,14 @@ export function Hero() {
 
       <h1
         className="rise mt-6 font-display text-[clamp(3.5rem,14vw,9rem)] font-extrabold leading-[0.92] tracking-[-0.03em] text-bone"
-        style={{ transitionDelay: "80ms" }}
+        style={{ animationDelay: "80ms" }}
       >
         Mongsil
       </h1>
 
       <p
         className="rise mt-6 font-body text-xl text-bone sm:text-2xl"
-        style={{ transitionDelay: "160ms" }}
+        style={{ animationDelay: "160ms" }}
       >
         이것저것 합니다.
       </p>
@@ -42,7 +42,7 @@ export function Hero() {
         href="#work"
         label="work"
         className="rise"
-        style={{ transitionDelay: "320ms" }}
+        style={{ animationDelay: "320ms" }}
       />
     </Section>
   );

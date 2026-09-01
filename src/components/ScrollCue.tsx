@@ -30,11 +30,11 @@ export function ScrollCue({
       href={href}
       onClick={handleClick}
       style={style}
-      className={`absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-xs text-muted transition-colors hover:text-ember${
+      className={`absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-4 font-mono text-xs text-muted transition-colors hover:text-ember${
         className ? ` ${className}` : ""
       }`}
     >
-      {up ? "↑" : "↓"} {label}
+      <span aria-hidden="true">{up ? "↑" : "↓"}</span> {label}
     </a>
   );
 }

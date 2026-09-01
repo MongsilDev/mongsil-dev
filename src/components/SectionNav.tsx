@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const SECTIONS = [
-  { id: "top", label: "intro" },
+  { id: "top", label: "top" },
   { id: "work", label: "work" },
   { id: "contact", label: "contact" },
 ] as const;
@@ -11,11 +11,14 @@ const SECTIONS = [
 export function SectionNav() {
   const [active, setActive] = useState(0);
   const activeRef = useRef(0);
+  // 스크롤 중 연타 시 activeRef(IO 50% 진입 후 갱신)가 아직 옛 값이라 목표를 따로 기억
+  const targetRef = useRef(0);
 
   const goTo = useCallback((idx: number) => {
     const clamped = Math.max(0, Math.min(SECTIONS.length - 1, idx));
     const el = document.getElementById(SECTIONS[clamped].id);
     if (!el) return;
+    targetRef.current = clamped;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
   }, []);
@@ -34,6 +37,7 @@ export function SectionNav() {
           const idx = SECTIONS.findIndex((s) => s.id === entry.target.id);
           if (idx >= 0) {
             activeRef.current = idx;
+            targetRef.current = idx;
             setActive(idx);
           }
         }
@@ -55,12 +59,12 @@ export function SectionNav() {
         case "ArrowDown":
         case "PageDown":
           e.preventDefault();
-          goTo(activeRef.current + 1);
+          goTo(targetRef.current + 1);
           break;
         case "ArrowUp":
         case "PageUp":
           e.preventDefault();
-          goTo(activeRef.current - 1);
+          goTo(targetRef.current - 1);
           break;
         case "Home":
           e.preventDefault();
@@ -79,7 +83,7 @@ export function SectionNav() {
   return (
     <nav
       aria-label="섹션 이동"
-      className="fixed right-5 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-3 sm:flex"
+      className="fixed right-3.5 top-1/2 z-50 hidden -translate-y-1/2 flex-col sm:flex"
     >
       {SECTIONS.map((s, i) => (
         <button
@@ -88,16 +92,16 @@ export function SectionNav() {
           onClick={() => goTo(i)}
           aria-label={s.label}
           aria-current={active === i ? "true" : undefined}
-          className="group relative flex items-center justify-center p-1.5"
+          className="group relative flex cursor-pointer items-center justify-center rounded-full p-3"
         >
-          <span className="pointer-events-none absolute right-6 whitespace-nowrap font-mono text-[11px] text-muted opacity-0 transition-opacity group-hover:opacity-100">
+          <span className="pointer-events-none absolute right-8 whitespace-nowrap font-mono text-xs text-muted opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
             {s.label}
           </span>
           <span
             className={`size-2 rounded-full transition-all duration-200 ease-out ${
               active === i
                 ? "scale-100 bg-ember"
-                : "scale-75 bg-muted/50 group-hover:bg-muted"
+                : "scale-75 bg-muted/70 group-hover:bg-muted"
             }`}
           />
         </button>

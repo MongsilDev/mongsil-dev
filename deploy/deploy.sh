@@ -19,8 +19,9 @@ echo "==> NAS 동기화 ($HOST:$REMOTE/out)"
 # 뒤의 슬래시 중요: out/ -> out/ 은 내용만 동기화 (--delete 로 삭제분도 반영)
 rsync -az --delete out/ "$HOST:$REMOTE/out/"
 
-echo "==> nginx 설정 동기화"
+echo "==> nginx 설정 동기화 + reload"
 rsync -az deploy/nginx.conf "$HOST:$REMOTE/nginx.conf"
+ssh "$HOST" "sudo -n /usr/local/bin/docker exec mongsil-dev nginx -s reload"
 
 echo "==> 확인"
 ssh "$HOST" "curl -s -o /dev/null -w '  http=%{http_code} type=%{content_type}\n' http://127.0.0.1:8083/"

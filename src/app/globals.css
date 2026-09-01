@@ -5,8 +5,7 @@
    순검정+산성그린(터미널 클리셰) 회피. */
 @theme {
   --color-ink: #15141b; /* 배경 — 웜 니어블랙 */
-  --color-ink-raised: #1e1c26; /* 카드 표면 */
-  --color-haze: #2a2733; /* 헤어라인·보더 */
+  --color-ink-raised: #232030; /* 카드 표면 — 보더 없이 밝기만으로 분리 */
   --color-bone: #ece7de; /* 본문 텍스트 (웜 오프화이트) */
   --color-muted: #8b8698; /* 보조 텍스트·메타 */
   --color-ember: #f2a25c; /* 액센트 = 상태등 (앰버) */
@@ -27,15 +26,17 @@ html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   background: var(--color-ink);
-
-  /* 스크롤바 숨김 (스크롤 자체는 그대로).
-     위치·이동 표시는 우측 섹션 내비 점과 ↓/↑ 큐가 대신함. */
-  scrollbar-width: none; /* Firefox */
 }
 
-/* Chrome / Safari / Edge */
-html::-webkit-scrollbar {
-  display: none;
+/* 스크롤바 숨김 (스크롤 자체는 그대로). 데스크톱만 —
+   위치·이동 표시는 우측 섹션 내비 점과 ↓/↑ 큐가 대신하는데 둘 다 sm 미만에선 없다. */
+@media (min-width: 40rem) {
+  html {
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -64,27 +65,29 @@ html:has(main[data-page="404"]) {
   color: var(--color-bone);
 }
 
-/* 키보드 포커스 링 — 마우스엔 안 보이고 키보드에만 */
-:focus-visible {
-  outline: 2px solid var(--color-ember);
-  outline-offset: 3px;
-  border-radius: 4px;
+/* 키보드 포커스 링 — 마우스엔 안 보이고 키보드에만.
+   base 레이어에 둬야 요소의 rounded-* 유틸리티가 링 모양을 이긴다. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-ember);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 }
 
 /* ── 진입 애니메이션 (로드 시) ────────────────────────────────
-   @starting-style — JS 없이. 미지원/reduced-motion 시 그냥 보임(폴백). */
+   keyframes로 두면 요소의 transition-* 유틸리티(호버 색 전환)와 충돌하지 않는다.
+   reduced-motion은 그냥 보임. */
 @media (prefers-reduced-motion: no-preference) {
   .rise {
-    opacity: 1;
-    transform: none;
-    transition:
-      opacity 700ms var(--ease-out),
-      transform 700ms var(--ease-out);
+    animation: rise 700ms var(--ease-out) both;
+  }
+}
 
-    @starting-style {
-      opacity: 0;
-      transform: translateY(0.7rem);
-    }
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.7rem);
   }
 }
 

@@ -13,10 +13,6 @@ export function Contact() {
         <ContactRow label="mail@mongsil.dev" href="mailto:mail@mongsil.dev" />
       </ul>
 
-      <p className="mt-16 font-mono text-xs text-muted">
-        © 2026 Mongsil
-      </p>
-
       <ScrollCue href="#top" label="top" up />
     </Section>
   );
@@ -28,7 +24,7 @@ function ContactRow({ label, href }: { label: string; href: string }) {
     <li>
       <a
         href={href}
-        className="group inline-flex items-center gap-3 py-2 font-mono text-lg text-bone transition-colors hover:text-ember active:scale-[0.99] sm:text-xl"
+        className="group inline-flex items-center gap-3 py-2 font-mono text-xl text-bone transition-colors hover:text-ember sm:text-2xl"
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         <span
