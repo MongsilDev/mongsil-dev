@@ -20,7 +20,8 @@ echo "==> NAS 동기화 ($HOST:$REMOTE/out)"
 rsync -az --delete out/ "$HOST:$REMOTE/out/"
 
 echo "==> nginx 설정 동기화 + reload"
-rsync -az deploy/nginx.conf "$HOST:$REMOTE/nginx.conf"
+# 단일 파일 바인드 마운트라 inode가 바뀌면 컨테이너는 옛 파일을 계속 본다 → --inplace 로 같은 inode에 덮어쓴다
+rsync -az --inplace deploy/nginx.conf "$HOST:$REMOTE/nginx.conf"
 ssh "$HOST" "sudo -n /usr/local/bin/docker exec mongsil-dev nginx -s reload"
 
 echo "==> 확인"
