@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <main
       data-page="404"
-      className="fixed inset-0 flex select-none flex-col items-center justify-center overflow-hidden px-6 text-center"
+      className="fixed inset-0 flex flex-col items-center justify-center overflow-hidden px-6 text-center"
     >
       <p className="font-display text-[clamp(7rem,28vw,16rem)] font-extrabold leading-none tracking-[-0.05em] text-bone">
         404

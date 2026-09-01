@@ -21,8 +21,7 @@ export function ScrollCue({
     const el = document.getElementById(href.replace("#", ""));
     if (!el) return; // 폴백: 기본 앵커 동작
     e.preventDefault();
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    el.scrollIntoView();
   };
 
   return (

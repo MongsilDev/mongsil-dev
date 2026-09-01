@@ -18,7 +18,6 @@ export function Hero() {
 
       <p
         className="rise flex items-center gap-2 font-mono text-xs text-muted"
-        style={{ animationDelay: "0ms" }}
       >
         <Dot live />
         <LiveStatus />

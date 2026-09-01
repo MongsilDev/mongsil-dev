@@ -29,7 +29,7 @@ export function LiveStatus() {
   }, []);
 
   return (
-    <span className="tabular-nums" suppressHydrationWarning>
+    <span className="tabular-nums">
       {now === null ? "seoul --:--:--" : `seoul ${seoulClock(now)}`}
     </span>
   );

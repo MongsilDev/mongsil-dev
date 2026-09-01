@@ -10,8 +10,7 @@ const SECTIONS = [
 
 export function SectionNav() {
   const [active, setActive] = useState(0);
-  const activeRef = useRef(0);
-  // 스크롤 중 연타 시 activeRef(IO 50% 진입 후 갱신)가 아직 옛 값이라 목표를 따로 기억
+  // 스크롤 중 연타 시 active(IO 50% 진입 후 갱신)는 아직 옛 값이라 목표를 따로 기억
   const targetRef = useRef(0);
 
   const goTo = useCallback((idx: number) => {
@@ -19,8 +18,7 @@ export function SectionNav() {
     const el = document.getElementById(SECTIONS[clamped].id);
     if (!el) return;
     targetRef.current = clamped;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    el.scrollIntoView(); // smooth/auto는 html의 scroll-behavior가 결정
   }, []);
 
   // 현재 화면에 걸린 섹션을 활성으로
@@ -36,7 +34,6 @@ export function SectionNav() {
           if (!entry.isIntersecting) continue;
           const idx = SECTIONS.findIndex((s) => s.id === entry.target.id);
           if (idx >= 0) {
-            activeRef.current = idx;
             targetRef.current = idx;
             setActive(idx);
           }
