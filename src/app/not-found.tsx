@@ -5,7 +5,7 @@ export default function NotFound() {
     <main className="flex min-h-svh flex-col items-center justify-center gap-6 px-6 text-center">
       <p className="font-mono text-sm text-ember">404</p>
       <h1 className="font-display text-4xl font-semibold text-bone sm:text-5xl">
-        여기엔 아무것도 안 굴러가는데.
+        없는 페이지입니다.
       </h1>
       <Link
         href="/"
