@@ -37,7 +37,7 @@ function ContactRow({ label, href }: { label: string; href: string }) {
         >
           →
         </span>
-        {label}
+        <span className="select-text">{label}</span>
       </a>
     </li>
   );

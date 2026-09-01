@@ -96,7 +96,7 @@ export default function RootLayout({
       lang="ko"
       className={`${display.variable} ${body.variable} ${mono.variable} ${korean.variable}`}
     >
-      <body className="min-h-svh bg-ink font-body text-bone antialiased">
+      <body className="min-h-svh select-none bg-ink font-body text-bone antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
