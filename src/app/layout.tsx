@@ -85,6 +85,7 @@ const jsonLd = {
 
 export const viewport: Viewport = {
   themeColor: "#15141b", // 모바일 브라우저 상단바를 배경색과 맞춤
+  colorScheme: "dark",
 };
 
 export default function RootLayout({

@@ -16,8 +16,9 @@ echo "==> 빌드"
 pnpm build
 
 echo "==> NAS 동기화 ($HOST:$REMOTE/out)"
-# 뒤의 슬래시 중요: out/ -> out/ 은 내용만 동기화 (--delete 로 삭제분도 반영)
-rsync -az --delete out/ "$HOST:$REMOTE/out/"
+# 뒤의 슬래시 중요: out/ -> out/ 은 내용만 동기화. 삭제는 전송이 끝난 뒤(--delete-after) —
+# 옛 HTML이 사라진 청크를 참조하는 창을 없앤다
+rsync -az --delete-after out/ "$HOST:$REMOTE/out/"
 
 echo "==> nginx 설정 동기화 + reload"
 # 단일 파일 바인드 마운트라 inode가 바뀌면 컨테이너는 옛 파일을 계속 본다 → --inplace 로 같은 inode에 덮어쓴다

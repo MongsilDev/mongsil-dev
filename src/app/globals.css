@@ -21,27 +21,20 @@
 }
 
 /* ── 풀페이지 스크롤 스냅 ──────────────────────────────────────
-   데스크톱은 mandatory(칸이 딱딱 넘어감). 모바일·reduced-motion은 일반 스크롤. */
+   sm 이상만 mandatory 스냅 + 스크롤바 숨김(위치 표시는 우측 섹션 내비 점이 대신하는데
+   sm 미만에선 없다). 모바일·reduced-motion은 일반 스크롤. */
 html {
-  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  color-scheme: dark;
   background: var(--color-ink);
-}
 
-/* 스크롤바 숨김 (스크롤 자체는 그대로). 데스크톱만 —
-   위치·이동 표시는 우측 섹션 내비 점과 ↓/↑ 큐가 대신하는데 둘 다 sm 미만에선 없다. */
-@media (min-width: 40rem) {
-  html {
+  @variant sm {
+    scroll-snap-type: y mandatory;
     scrollbar-width: none;
-  }
-  html::-webkit-scrollbar {
-    display: none;
-  }
-}
 
-@media (max-width: 640px) {
-  html {
-    scroll-snap-type: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -128,16 +121,5 @@ html:has(main[data-page="404"]) {
   }
   50% {
     opacity: 0.55;
-  }
-}
-
-/* reduced-motion 사용자는 모든 모션 무력화 (호버 리프트 포함) */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
   }
 }
