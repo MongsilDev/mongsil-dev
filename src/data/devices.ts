@@ -9,5 +9,5 @@ export const devices: Device[] = [
   { name: "iPhone 17 Pro", spec: "A19 Pro, 256GB storage, 6.3-inch" },
   { name: "Apple Watch Ultra 3", spec: "49mm titanium, GPS + Cellular" },
   { name: "AirPods Pro 3", spec: "H2" },
-  { name: "Synology DS220+", spec: "Celeron J4025, 18GB memory, 7TB volume" },
+  { name: "Synology DS220+", spec: "Celeron J4025, 18GB memory, 8TB storage" },
 ];
