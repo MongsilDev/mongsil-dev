@@ -17,16 +17,16 @@ export type Repo = {
 // tarkov-settings는 포크지만 직접 개발 중이라 포함.
 export const repos: Repo[] = [
   {
-    name: "scrim-bot",
-    blurb: "Eternal Return scrim Discord bot",
-    stack: "Python, discord.py",
-    href: "https://github.com/MongsilOrg/scrim-bot",
-  },
-  {
     name: "tarkov-settings",
     blurb: "Escape from Tarkov display settings utility",
     stack: "C#, WinForms",
     href: "https://github.com/MongsilDev/tarkov-settings",
+  },
+  {
+    name: "scrim-bot",
+    blurb: "Eternal Return scrim Discord bot",
+    stack: "Python, discord.py",
+    href: "https://github.com/MongsilOrg/scrim-bot",
   },
 ];
 
