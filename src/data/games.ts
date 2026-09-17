@@ -1,17 +1,18 @@
 export type Game = {
   name: string;
   hours: string; // 누적 플레이 시간 실측값, 천 단위 콤마
+  cover: string;
 };
 
 // Steam 프로필 실측값, 소수점 버림
 // 게임명은 영문 공식 표기
 export const games: Game[] = [
-  { name: "Eternal Return", hours: "7,488" },
-  { name: "Rainbow Six Siege", hours: "1,277" },
-  { name: "Apex Legends", hours: "815" },
-  { name: "PUBG: BATTLEGROUNDS", hours: "185" },
-  { name: "Palworld", hours: "172" },
-  { name: "Counter-Strike 2", hours: "170" },
+  { name: "Eternal Return", hours: "7,488", cover: "eternalreturn" },
+  { name: "Rainbow Six Siege", hours: "1,277", cover: "r6siege" },
+  { name: "Apex Legends", hours: "815", cover: "apex" },
+  { name: "PUBG: BATTLEGROUNDS", hours: "185", cover: "pubg" },
+  { name: "Palworld", hours: "172", cover: "palworld" },
+  { name: "Counter-Strike 2", hours: "170", cover: "cs2" },
 ];
 
 export const steamProfile = "https://steamcommunity.com/id/MongsilDev";

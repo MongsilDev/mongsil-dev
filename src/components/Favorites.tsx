@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { currentGames, favoriteGame, likedGames, type FavoriteGame } from "@/data/games";
+import { currentGames, favoriteGame, likedGames } from "@/data/games";
+import { Cover } from "./GameCover";
 import { Section } from "./Section";
 import { ScrollCue } from "./ScrollCue";
 
@@ -57,19 +58,5 @@ function Label({ children }: { children: React.ReactNode }) {
     <h3 className="mb-4 whitespace-nowrap border-b border-hairline pb-3 text-[14px] text-fg-muted">
       {children}
     </h3>
-  );
-}
-
-function Cover({ game }: { game: FavoriteGame }) {
-  return (
-    <Image
-      src={`/games/${game.cover}.jpg`}
-      alt={game.name}
-      title={game.name}
-      width={400}
-      height={600}
-      loading="lazy"
-      className="aspect-[2/3] w-full rounded-[10px] object-cover"
-    />
   );
 }
