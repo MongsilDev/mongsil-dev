@@ -9,6 +9,8 @@
   --fg: #f5f5f7;
   --fg-muted: #86868b;
   --tile: #1d1d1f;
+  --tile-edge: rgba(255, 255, 255, 0.08);
+  --tile-shadow: none;
   --hairline: #424245;
   --link: #2997ff;
 }
@@ -18,6 +20,8 @@
   --fg: #1d1d1f;
   --fg-muted: #6e6e73;
   --tile: #ffffff;
+  --tile-edge: rgba(0, 0, 0, 0.14);
+  --tile-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.08);
   --hairline: #d2d2d7;
   --link: #0066cc;
 }
@@ -75,6 +79,13 @@ html:has(main[data-page="404"]) {
     scroll-snap-type: none;
     scroll-behavior: auto;
   }
+}
+
+/* 배경과 RGB 10 차이라 저대비 모니터에서 경계 소실, 테두리와 그림자 필수 */
+.tile {
+  background: var(--tile);
+  border: 1px solid var(--tile-edge);
+  box-shadow: var(--tile-shadow);
 }
 
 /* 텍스트 선택 색 */

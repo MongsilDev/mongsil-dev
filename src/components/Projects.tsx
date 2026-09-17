@@ -27,7 +27,7 @@ export function Projects() {
               href={r.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-full flex-col rounded-[20px] bg-tile p-7"
+              className="flex h-full flex-col tile rounded-[20px] p-7"
             >
               <span className="text-[19px] font-semibold tracking-[-0.01em]">{r.name}</span>
               <span className="mt-1 text-[14px] text-fg-muted">{r.blurb}</span>
@@ -48,7 +48,7 @@ function ProjectCard({ project }: { project: Project }) {
       href={project.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex h-full flex-col rounded-[28px] bg-tile p-7"
+      className="flex h-full flex-col tile rounded-[28px] p-7"
     >
       <h3 className="text-[32px] font-semibold leading-tight tracking-[-0.02em]">
         {project.name}
