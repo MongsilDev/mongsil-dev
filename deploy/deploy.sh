@@ -16,7 +16,7 @@ echo "==> 빌드"
 pnpm build
 
 echo "==> NAS 동기화 ($HOST:$REMOTE/out)"
-# 뒤의 슬래시 중요: out/ -> out/ 은 내용만 동기화. 삭제는 전송이 끝난 뒤(--delete-after) —
+# 뒤 슬래시 필수: out/ 내용만 동기화, 삭제는 전송 완료 뒤 --delete-after
 # 옛 HTML이 사라진 청크를 참조하는 창을 없앤다
 rsync -az --delete-after out/ "$HOST:$REMOTE/out/"
 
