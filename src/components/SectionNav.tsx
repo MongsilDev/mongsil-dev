@@ -3,9 +3,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const SECTIONS = [
-  { id: "top", label: "top" },
-  { id: "work", label: "work" },
-  { id: "contact", label: "contact" },
+  { id: "top", label: "Top" },
+  { id: "work", label: "Work" },
+  { id: "play", label: "Play" },
+  { id: "favorites", label: "Favorites" },
+  { id: "setup", label: "Setup" },
+  { id: "contact", label: "Contact" },
 ] as const;
 
 export function SectionNav() {
@@ -95,9 +98,11 @@ export function SectionNav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [goTo]);
 
+  // 흰 점과 라벨을 difference 블렌드로 그려 밝은 섹션 위에서는 검게 뒤집힌다.
+  // 블렌드는 span에만 건다. nav나 button에 걸면 포커스 링까지 색이 뒤집힌다.
   return (
     <nav
-      aria-label="섹션 이동"
+      aria-label="Sections"
       className="fixed right-2 top-1/2 z-50 hidden -translate-y-1/2 flex-col sm:flex"
     >
       {SECTIONS.map((s, i) => (
@@ -109,14 +114,12 @@ export function SectionNav() {
           aria-current={active === i ? "true" : undefined}
           className="group relative flex cursor-pointer items-center justify-center rounded-full p-3"
         >
-          <span className="pointer-events-none absolute right-8 whitespace-nowrap font-mono text-xs text-muted opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+          <span className="pointer-events-none absolute right-10 whitespace-nowrap text-[12px] text-white/70 opacity-0 mix-blend-difference transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
             {s.label}
           </span>
           <span
-            className={`size-2 rounded-full transition-all duration-200 ease-out ${
-              active === i
-                ? "scale-100 bg-ember"
-                : "scale-75 bg-muted/70 group-hover:bg-muted"
+            className={`size-2 rounded-full mix-blend-difference transition-colors duration-200 ${
+              active === i ? "bg-white" : "bg-white/40 group-hover:bg-white/70"
             }`}
           />
         </button>

@@ -1,15 +1,14 @@
-// presence 점 — 이 페이지의 시그니처 마커. live면 soft green + 은은한 글로우.
+// rounded-full은 리터럴 필수, 템플릿 리터럴에 붙으면 Tailwind 추출 누락
 export function Dot({ live = false }: { live?: boolean }) {
   return (
     <span
       aria-hidden="true"
-      className={`inline-block size-2 shrink-0 rounded-full${live ? " dot-live" : ""}`}
-      style={{
-        background: live ? "var(--color-live)" : "var(--color-muted)",
-        boxShadow: live
-          ? "0 0 10px color-mix(in oklab, var(--color-live) 65%, transparent)"
-          : undefined,
-      }}
+      className={
+        live
+          ? "dot-live inline-block size-2 shrink-0 rounded-full"
+          : "inline-block size-2 shrink-0 rounded-full"
+      }
+      style={{ background: live ? "var(--color-live)" : "var(--fg-muted)" }}
     />
   );
 }

@@ -1,32 +1,57 @@
 @import "tailwindcss";
 
-/* ── 디자인 토큰 ──────────────────────────────────────────────
-   "warm dusk" — 보라 기운 도는 웜 잉크 + 앰버 액센트 + bone 텍스트.
-   순검정+산성그린(터미널 클리셰) 회피. */
+/* ── 톤 변수 ──────────────────────────────────────────────────
+   Apple 제품 페이지처럼 섹션마다 검정과 밝은 회색을 교차한다.
+   섹션이 data-tone으로 변수를 바꾸면 안의 토큰 유틸리티가 따라간다. */
+:root,
+[data-tone="dark"] {
+  --bg: #000000;
+  --fg: #f5f5f7;
+  --fg-muted: #86868b;
+  --tile: #1d1d1f;
+  --hairline: #424245;
+  --link: #2997ff;
+}
+
+[data-tone="light"] {
+  --bg: #f5f5f7;
+  --fg: #1d1d1f;
+  --fg-muted: #6e6e73;
+  --tile: #ffffff;
+  --hairline: #d2d2d7;
+  --link: #0066cc;
+}
+
+/* inline이어야 유틸리티가 var(--fg)를 직접 참조해 섹션 단위 톤 전환이 된다 */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-tile: var(--tile);
+  --color-hairline: var(--hairline);
+  --color-link: var(--link);
+}
+
 @theme {
-  --color-ink: #15141b; /* 배경 — 웜 니어블랙 */
-  --color-ink-raised: #232030; /* 카드 표면 — 보더 없이 밝기만으로 분리 */
-  --color-bone: #ece7de; /* 본문 텍스트 (웜 오프화이트) */
-  --color-muted: #8b8698; /* 보조 텍스트·메타 */
-  --color-ember: #f2a25c; /* 액센트 = 상태등 (앰버) */
-  --color-live: #84c7a0; /* running 점 (아주 절제) */
+  --color-live: #30d158; /* running 점 (시스템 그린) */
+  --color-cta: #0071e3; /* 로컬 내비 버튼 */
 
-  /* next/font(--f-*)를 각 폴백 스택으로 감쌈 */
-  /* 라틴은 앞의 웹폰트, 한글은 그 다음 나눔고딕이 담당 (글리프 없는 문자만 폴백됨) */
-  --font-display: var(--f-display), var(--f-korean), "Apple SD Gothic Neo", system-ui, sans-serif;
-  --font-body: var(--f-body), var(--f-korean), "Apple SD Gothic Neo", system-ui, sans-serif;
-  --font-mono: var(--f-mono), "SFMono-Regular", ui-monospace, monospace;
+  /* 한글 폰트는 system-ui 뒤에 둔다. 앞에 두면 Windows에서 라틴과 숫자까지
+     맑은 고딕(400/700만 있음)으로 잡혀 600 weight가 깨진다. */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", system-ui, "Helvetica Neue", "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
 
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* 강한 ease-out (emil) */
+  --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* ── 풀페이지 스크롤 스냅 ──────────────────────────────────────
    sm 이상만 mandatory 스냅 + 스크롤바 숨김(위치 표시는 우측 섹션 내비 점이 대신하는데
-   sm 미만에선 없다). 모바일·reduced-motion은 일반 스크롤. */
+   sm 미만에선 없다). 모바일과 reduced-motion은 일반 스크롤. */
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
-  background: var(--color-ink);
+  background: var(--bg);
 
   @variant sm {
     scroll-snap-type: y mandatory;
@@ -38,7 +63,7 @@ html {
   }
 }
 
-/* 404는 한 화면 고정: 스크롤·바운스·스냅 전부 끔 */
+/* 404는 한 화면 고정: 스크롤, 바운스, 스냅 전부 끔 */
 html:has(main[data-page="404"]) {
   overflow: hidden;
   overscroll-behavior: none;
@@ -54,15 +79,15 @@ html:has(main[data-page="404"]) {
 
 /* 텍스트 선택 색 */
 ::selection {
-  background: color-mix(in oklab, var(--color-ember) 30%, transparent);
-  color: var(--color-bone);
+  background: color-mix(in oklab, var(--link) 30%, transparent);
+  color: var(--fg);
 }
 
-/* 키보드 포커스 링 — 마우스엔 안 보이고 키보드에만.
+/* 키보드 포커스 링. 마우스엔 안 보이고 키보드에만.
    base 레이어에 둬야 요소의 rounded-* 유틸리티가 링 모양을 이긴다. */
 @layer base {
   :focus-visible {
-    outline: 2px solid var(--color-ember);
+    outline: 2px solid var(--link);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -85,13 +110,15 @@ html:has(main[data-page="404"]) {
 }
 
 /* ── 스크롤 구동 등장 (CSS 스크롤 애니, JS 0) ─────────────────
-   미지원 브라우저는 @supports로 건너뜀 → 콘텐츠 그대로 보임. */
+   미지원 브라우저는 @supports로 건너뛰어 콘텐츠가 그대로 보임.
+   섹션 하단 요소에는 붙이지 말 것. 스냅 정지 위치가 종점(cover 25%)에
+   못 미쳐 반투명으로 고정된다. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .reveal {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 8% cover 34%;
+      animation-range: entry 5% cover 25%;
     }
   }
 }
@@ -107,7 +134,7 @@ html:has(main[data-page="404"]) {
   }
 }
 
-/* live 점 — 아주 은은한 숨쉬기 (running = 살아있는 상태등) */
+/* live 점 숨쉬기, running 상태등 */
 @media (prefers-reduced-motion: no-preference) {
   .dot-live {
     animation: breathe 2.6s ease-in-out infinite;

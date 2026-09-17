@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-// 서울(KST) 시:분:초 — 보는 사람 로컬 시간대와 무관하게 항상 서울 시간
+// 서울(KST) 시:분:초. 보는 사람 로컬 시간대와 무관하게 항상 서울 시간
 function seoulClock(ms: number) {
   return new Intl.DateTimeFormat("en-GB", {
     timeZone: "Asia/Seoul",
@@ -14,7 +14,7 @@ function seoulClock(ms: number) {
 }
 
 export function LiveStatus() {
-  // 초기엔 null → 자리표시 렌더 (SSR/하이드레이션 불일치 방지), 마운트 후 매초 갱신
+  // 첫 렌더는 null 자리표시, 서버 HTML과 하이드레이션 값 일치 필요
   const [now, setNow] = useState<number | null>(null);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export function LiveStatus() {
 
   return (
     <span className="tabular-nums">
-      {now === null ? "seoul --:--:--" : `seoul ${seoulClock(now)}`}
+      {now === null ? "Seoul --:--:--" : `Seoul ${seoulClock(now)}`}
     </span>
   );
 }

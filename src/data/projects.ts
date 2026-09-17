@@ -1,27 +1,50 @@
 export type Project = {
   name: string;
-  blurb: string; // 한 줄 설명 (한국어)
-  stack: string; // 모노 메타 (기술 스택)
-  href: string; // 없으면 "" (링크 없이 표시)
-  live: boolean; // presence 점 색 (running 여부)
-  since: string; // 가동 시작일 (ISO). 카드엔 연도만 표시
+  blurb: string;
+  stack: string;
+  href: string;
+  live: boolean; // 상태 점 색, running 여부
+  since: string; // 가동 시작일 ISO, 한국 시간 기준
 };
 
-// since는 실측값:
-//  - bori.wiki : MediaWiki 최초 기록("대문" 생성) 2024-09-30T18:03:50Z
-//  - mongsilbot: Discord 앱 ID(snowflake) 디코드 → 2023-06-15T05:54:18Z
+export type Repo = {
+  name: string;
+  blurb: string;
+  stack: string;
+  href: string;
+};
+
+// tarkov-settings는 포크지만 직접 개발 중이라 포함.
+export const repos: Repo[] = [
+  {
+    name: "scrim-bot",
+    blurb: "Eternal Return scrim Discord bot",
+    stack: "Python, discord.py",
+    href: "https://github.com/MongsilOrg/scrim-bot",
+  },
+  {
+    name: "tarkov-settings",
+    blurb: "Escape from Tarkov display settings utility",
+    stack: "C#, WinForms",
+    href: "https://github.com/MongsilDev/tarkov-settings",
+  },
+];
+
+// since 실측 출처
+//  - bori.wiki: MediaWiki 대문 최초 생성 2024-09-30T18:03:50Z, 한국 시간 10월 1일
+//  - mongsil-bot: Discord 앱 ID snowflake 디코드 값 2023-06-15T05:54:18Z
 export const projects: Project[] = [
   {
     name: "bori.wiki",
-    blurb: "이터널 리턴 이스포츠 위키",
+    blurb: "Eternal Return esports wiki",
     stack: "MediaWiki, MariaDB",
     href: "https://bori.wiki",
     live: true,
-    since: "2024-09-30",
+    since: "2024-10-01",
   },
   {
-    name: "mongsilbot",
-    blurb: "이터널 리턴 전적 조회 디스코드 봇",
+    name: "mongsil-bot",
+    blurb: "Eternal Return stats Discord bot",
     stack: "Python, discord.py",
     href: "https://discord.com/discovery/applications/1118780504490131557",
     live: true,

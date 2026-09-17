@@ -2,8 +2,8 @@
 
 import type { CSSProperties, MouseEvent } from "react";
 
-// 섹션 하단 중앙의 스크롤 안내. 클릭 시 JS로 스크롤 → URL에 #해시 안 붙음.
-// href는 접근성/JS 미동작 시 폴백용으로 유지.
+// 섹션 하단 중앙 스크롤 안내, JS 스크롤이라 URL에 #해시 없음
+// href는 접근성과 JS 미동작 시 폴백용.
 export function ScrollCue({
   href,
   label,
@@ -29,9 +29,12 @@ export function ScrollCue({
       href={href}
       onClick={handleClick}
       style={style}
-      className={`absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-4 font-mono text-xs text-muted transition-colors hover:text-ember${
-        className ? ` ${className}` : ""
-      }`}
+      className={[
+        "absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-4 text-[13px] text-fg-muted transition-colors hover:text-fg",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
       <span aria-hidden="true">{up ? "↑" : "↓"}</span> {label}
     </a>

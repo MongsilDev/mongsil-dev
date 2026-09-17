@@ -1,13 +1,15 @@
-import { projects, type Project } from "@/data/projects";
+import { projects, repos, type Project } from "@/data/projects";
 import { Dot } from "./StatusDot";
 import { Section } from "./Section";
 import { ScrollCue } from "./ScrollCue";
 
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 export function Projects() {
   return (
-    <Section id="work" className="relative py-20">
-      <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-        <span aria-hidden="true" className="text-ember">/</span> work
+    <Section id="work" tone="light" className="pt-20 pb-12">
+      <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.015em]">
+        Work
       </h2>
 
       <ul className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -18,50 +20,47 @@ export function Projects() {
         ))}
       </ul>
 
-      <ScrollCue href="#contact" label="contact" />
+      <ul className="mt-4 grid gap-4 sm:grid-cols-2">
+        {repos.map((r) => (
+          <li key={r.name}>
+            <a
+              href={r.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-full flex-col rounded-[20px] bg-tile p-7"
+            >
+              <span className="text-[19px] font-semibold tracking-[-0.01em]">{r.name}</span>
+              <span className="mt-1 text-[14px] text-fg-muted">{r.blurb}</span>
+              <span className="mt-1 text-[13px] text-fg-muted">{r.stack}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <ScrollCue href="#play" label="Play" />
     </Section>
   );
 }
 
 function ProjectCard({ project }: { project: Project }) {
-  const card = (
-    <div className="flex h-full flex-col rounded-3xl bg-ink-raised p-8 transition duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:active:scale-[0.98]">
-      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-        <h3 className="font-display text-3xl font-semibold tracking-[-0.02em] text-bone">
-          {project.name}
-        </h3>
-        <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap font-mono text-xs text-muted">
-          <Dot live={project.live} />
-          {project.live ? "running" : "idle"} since {project.since.slice(0, 4)}
-        </span>
-      </div>
-
-      <p className="mt-2 font-body text-base text-bone">{project.blurb}</p>
-
-      <div className="mt-auto flex items-center justify-between pt-8">
-        <span className="font-mono text-xs text-muted">{project.stack}</span>
-        {project.href && (
-          <span
-            aria-hidden="true"
-            className="font-mono text-sm text-muted transition-colors group-hover:text-ember group-focus-visible:text-ember"
-          >
-            →
-          </span>
-        )}
-      </div>
-    </div>
-  );
-
-  if (!project.href) return card;
-
-  const external = project.href.startsWith("http");
   return (
     <a
       href={project.href}
-      className="group block h-full rounded-3xl"
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex h-full flex-col rounded-[28px] bg-tile p-7"
     >
-      {card}
+      <h3 className="text-[32px] font-semibold leading-tight tracking-[-0.02em]">
+        {project.name}
+      </h3>
+      <p className="mt-1.5 text-[17px] text-fg-muted">{project.blurb}</p>
+      <p className="mt-1 text-[13px] text-fg-muted">{project.stack}</p>
+
+      <p className="mt-auto flex items-center gap-1.5 pt-6 text-[13px] text-fg-muted">
+        <Dot live={project.live} />
+        {project.live ? "Running" : "Stopped"} since{" "}
+        {MONTHS[Number(project.since.slice(5, 7)) - 1]} {project.since.slice(0, 4)}
+      </p>
     </a>
   );
 }

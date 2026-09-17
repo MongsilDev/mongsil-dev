@@ -3,17 +3,17 @@ import { ScrollCue } from "./ScrollCue";
 
 export function Contact() {
   return (
-    <Section id="contact" className="relative py-20">
-      <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-        <span aria-hidden="true" className="text-ember">/</span> contact
+    <Section id="contact" tone="light" className="pt-20 pb-12">
+      <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.015em]">
+        Contact
       </h2>
 
-      <ul className="mt-8 flex flex-col">
+      <ul className="mt-8 flex flex-col gap-3">
         <ContactRow label="github.com/MongsilDev" href="https://github.com/MongsilDev" />
         <ContactRow label="mail@mongsil.dev" href="mailto:mail@mongsil.dev" />
       </ul>
 
-      <ScrollCue href="#top" label="top" up />
+      <ScrollCue href="#top" label="Top" up />
     </Section>
   );
 }
@@ -24,16 +24,10 @@ function ContactRow({ label, href }: { label: string; href: string }) {
     <li>
       <a
         href={href}
-        className="group inline-flex items-center gap-3 py-2 font-mono text-xl text-bone transition-colors hover:text-ember sm:text-2xl"
+        className="text-[clamp(1.3125rem,2.4vw,1.75rem)] text-link hover:underline"
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
-        <span
-          aria-hidden="true"
-          className="text-sm text-muted transition-colors group-hover:text-ember"
-        >
-          →
-        </span>
-        <span className="select-text">{label}</span>
+        <span className="select-text">{label}</span> <span aria-hidden="true">›</span>
       </a>
     </li>
   );

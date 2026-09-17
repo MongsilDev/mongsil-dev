@@ -6,17 +6,12 @@ export default function NotFound() {
       data-page="404"
       className="fixed inset-0 flex flex-col items-center justify-center overflow-hidden px-6 text-center"
     >
-      <p className="font-display text-[clamp(7rem,28vw,16rem)] font-extrabold leading-none tracking-[-0.05em] text-bone">
+      <p className="text-[clamp(7rem,28vw,16rem)] font-semibold leading-none tracking-[-0.04em] text-fg">
         404
       </p>
-      <p className="mt-2 font-mono text-sm uppercase tracking-[0.3em] text-ember sm:text-base">
-        Not Found
-      </p>
-      <Link
-        href="/"
-        className="mt-12 font-mono text-sm text-muted transition-colors hover:text-ember"
-      >
-        ← 돌아가기
+      <p className="mt-3 text-[17px] text-fg-muted">Not Found</p>
+      <Link href="/" className="mt-12 text-[17px] text-link hover:underline">
+        Back to home <span aria-hidden="true">›</span>
       </Link>
     </main>
   );

@@ -15,9 +15,9 @@ export default function OpengraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
+          alignItems: "center",
           justifyContent: "center",
-          padding: "84px",
-          background: "#15141b",
+          background: "#000000",
           fontFamily: "sans-serif",
         }}
       >
@@ -26,7 +26,7 @@ export default function OpengraphImage() {
             display: "flex",
             alignItems: "center",
             gap: 16,
-            color: "#8b8698",
+            color: "#86868b",
             fontSize: 30,
           }}
         >
@@ -35,7 +35,7 @@ export default function OpengraphImage() {
               width: 20,
               height: 20,
               borderRadius: 999,
-              background: "#84c7a0",
+              background: "#30d158",
             }}
           />
           seoul, korea
@@ -44,10 +44,10 @@ export default function OpengraphImage() {
           style={{
             display: "flex",
             fontSize: 200,
-            fontWeight: 800,
-            letterSpacing: "-8px",
-            marginTop: 20,
-            color: "#ece7de",
+            fontWeight: 600,
+            letterSpacing: "-6px",
+            marginTop: 16,
+            color: "#f5f5f7",
           }}
         >
           Mongsil
