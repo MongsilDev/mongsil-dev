@@ -21,7 +21,7 @@ function jump(e: MouseEvent<HTMLAnchorElement>, id: string) {
 
 export function LocalNav() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-12 bg-[rgba(22,22,23,0.8)] text-[#f5f5f7] backdrop-blur-xl backdrop-saturate-[1.8]">
+    <header className="fixed inset-x-0 top-0 z-50 h-12 border-b border-white/10 bg-[rgba(22,22,23,0.8)] text-[#f5f5f7] backdrop-blur-xl backdrop-saturate-[1.8]">
       <nav
         aria-label="Page"
         className="mx-auto flex h-full max-w-[980px] items-center justify-between px-6"
