@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { currentGames, favoriteGame, likedGames } from "@/data/games";
-import { Cover } from "./GameCover";
+import { COVER_VERSION, Cover } from "./GameCover";
 import { Section } from "./Section";
 import { ScrollCue } from "./ScrollCue";
 
@@ -15,7 +15,7 @@ export function Favorites() {
         <div className="w-52 shrink-0 lg:w-[275px]">
           <Label>Favorite</Label>
           <Image
-            src={`/games/${favoriteGame.cover}.jpg`}
+            src={`/games/${favoriteGame.cover}.jpg?v=${COVER_VERSION}`}
             alt={favoriteGame.name}
             title={favoriteGame.name}
             width={748}
