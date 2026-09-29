@@ -22,7 +22,7 @@ export function Setup() {
                   href={d.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline decoration-hairline underline-offset-4 transition-colors [-webkit-tap-highlight-color:transparent] hover:text-fg hover:decoration-fg"
+                  className="relative underline decoration-hairline before:absolute before:-inset-x-4 before:-inset-y-3 underline-offset-4 transition-colors [-webkit-tap-highlight-color:transparent] hover:text-fg hover:decoration-fg"
                 >
                   {d.spec}
                 </a>
