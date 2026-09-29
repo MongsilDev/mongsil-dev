@@ -1,4 +1,4 @@
-import { devices, type Device } from "@/data/devices";
+import { devices } from "@/data/devices";
 import { Section } from "./Section";
 import { ScrollCue } from "./ScrollCue";
 
@@ -9,44 +9,32 @@ export function Setup() {
         Setup
       </h2>
 
-      <ul className="mt-10 border-b border-hairline">
+      <dl className="mt-10 border-b border-hairline">
         {devices.map((d) => (
-          <li key={d.name} className="border-t border-hairline">
-            {d.href ? (
-              <a
-                href={d.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-baseline gap-3 py-3 [-webkit-tap-highlight-color:transparent]"
-              >
-                <DeviceText device={d} />
-                <span
-                  aria-hidden="true"
-                  className="w-4 text-center text-[15px] text-fg-muted transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-fg"
+          <div
+            key={d.name}
+            className="flex flex-col gap-1 border-t border-hairline py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+          >
+            <dt className="text-[19px] font-semibold tracking-[-0.01em]">{d.name}</dt>
+            <dd className="text-[15px] text-fg-muted">
+              {d.href ? (
+                <a
+                  href={d.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-hairline underline-offset-4 transition-colors [-webkit-tap-highlight-color:transparent] hover:text-fg hover:decoration-fg"
                 >
-                  ↗
-                </span>
-              </a>
-            ) : (
-              <div className="flex items-baseline gap-3 py-3">
-                <DeviceText device={d} />
-                <span className="w-4" />
-              </div>
-            )}
-          </li>
+                  {d.spec}
+                </a>
+              ) : (
+                d.spec
+              )}
+            </dd>
+          </div>
         ))}
-      </ul>
+      </dl>
 
       <ScrollCue href="#contact" label="Contact" />
     </Section>
-  );
-}
-
-function DeviceText({ device }: { device: Device }) {
-  return (
-    <span className="flex flex-1 flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-      <span className="text-[19px] font-semibold tracking-[-0.01em]">{device.name}</span>
-      <span className="text-[15px] text-fg-muted transition-colors group-hover:text-fg">{device.spec}</span>
-    </span>
   );
 }
