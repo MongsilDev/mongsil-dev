@@ -13,7 +13,7 @@ export function Setup() {
         {devices.map((d) => (
           <div
             key={d.name}
-            className="flex flex-col gap-1 border-t border-hairline py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+            className="group relative flex flex-col gap-1 border-t border-hairline py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
           >
             <dt className="text-[19px] font-semibold tracking-[-0.01em]">{d.name}</dt>
             <dd className="text-[15px] text-fg-muted">
@@ -22,7 +22,7 @@ export function Setup() {
                   href={d.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative underline decoration-hairline before:absolute before:-inset-x-4 before:-inset-y-3 underline-offset-4 transition-colors [-webkit-tap-highlight-color:transparent] hover:text-fg hover:decoration-fg"
+                  className="underline decoration-hairline underline-offset-4 transition-colors [-webkit-tap-highlight-color:transparent] after:absolute after:inset-0 group-hover:text-fg group-hover:decoration-fg"
                 >
                   {d.spec}
                 </a>
