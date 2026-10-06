@@ -28,9 +28,9 @@ export const devices: Device[] = [
     href: "https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/20-year/DS220+/enu/Synology_DS220_Plus_Data_Sheet_enu.pdf",
   },
   {
-    name: "iPhone 17 Pro",
-    spec: "A19 Pro, 256GB storage, 6.3-inch ProMotion",
-    href: "https://support.apple.com/en-us/125090",
+    name: "iPhone 18 Pro Max",
+    spec: "A20 Pro, 256GB storage, 6.9-inch ProMotion",
+    href: "https://support.apple.com/en-us/148591",
   },
   {
     name: "Apple Watch Ultra 4",
