@@ -11,7 +11,7 @@ export const devices: Device[] = [
     spec: "M2, 16GB memory, 13.6-inch",
     href: "https://support.apple.com/en-us/111867",
   },
-  { name: "Mac mini", spec: "M6, 16GB memory, 256GB storage", href: "https://www.apple.com/mac-mini/" },
+  { name: "Mac mini", spec: "M6, 16GB memory, 256GB storage", href: "https://support.apple.com/en-us/128108" },
   {
     name: "Venom 87 HE",
     spec: "UR Ice Extreme switches, FBB SFC 1990 keycaps",
@@ -35,7 +35,7 @@ export const devices: Device[] = [
   {
     name: "Apple Watch Ultra 4",
     spec: "49mm titanium, GPS + Cellular",
-    href: "https://www.apple.com/apple-watch-ultra-4/",
+    href: "https://support.apple.com/en-us/148758",
   },
   {
     name: "AirPods Pro 3",
