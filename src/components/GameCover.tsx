@@ -1,7 +1,5 @@
-import Image from "next/image";
-
 // 표지 파일을 같은 이름으로 교체하면 올릴 것, CDN과 브라우저 12시간 캐시
-export const COVER_VERSION = 2;
+export const COVER_VERSION = 3;
 
 type CoverGame = { name: string; cover: string; site: string };
 
@@ -19,16 +17,47 @@ export function GameLink({ game, children }: { game: CoverGame; children: React.
   );
 }
 
-export function Cover({ game }: { game: CoverGame }) {
+// public/games에 원본 폭의 절반과 원본 폭 두 가지 webp가 있음
+export function CoverImage({
+  game,
+  width,
+  height,
+  sizes,
+  className,
+}: {
+  game: CoverGame;
+  width: number;
+  height: number;
+  sizes: string;
+  className: string;
+}) {
+  const src = (w: number) => `/games/${game.cover}-${w}.webp?v=${COVER_VERSION}`;
+  const half = width / 2;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element -- 정적 export라 next/image 최적화가 없어 srcSet을 직접 씀
+    <img
+      src={src(width)}
+      srcSet={`${src(half)} ${half}w, ${src(width)} ${width}w`}
+      sizes={sizes}
+      alt={game.name}
+      title={game.name}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+      className={className}
+    />
+  );
+}
+
+export function Cover({ game, sizes = "96px" }: { game: CoverGame; sizes?: string }) {
   return (
     <GameLink game={game}>
-      <Image
-        src={`/games/${game.cover}.jpg?v=${COVER_VERSION}`}
-        alt={game.name}
-        title={game.name}
+      <CoverImage
+        game={game}
         width={400}
         height={600}
-        loading="lazy"
+        sizes={sizes}
         className="aspect-[2/3] w-full rounded-[10px] object-cover"
       />
     </GameLink>

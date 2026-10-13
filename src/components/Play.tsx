@@ -7,14 +7,14 @@ export function Play() {
   const [lead, ...rest] = games;
 
   return (
-    <Section id="play" className="pt-20 pb-12">
+    <Section id="play" className="pt-20 pb-20">
       <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.015em]">
         Play
       </h2>
 
       <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:gap-10">
         <div className="w-40 shrink-0 lg:w-[203px]">
-          <Cover game={lead} />
+          <Cover game={lead} sizes="(min-width: 1024px) 203px, 160px" />
         </div>
 
         <div className="flex min-w-0 flex-col">

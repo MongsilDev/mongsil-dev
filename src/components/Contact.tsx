@@ -3,7 +3,7 @@ import { ScrollCue } from "./ScrollCue";
 
 export function Contact() {
   return (
-    <Section id="contact" tone="light" className="pt-20 pb-12">
+    <Section id="contact" tone="light" className="pt-20 pb-20">
       <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.015em]">
         Contact
       </h2>

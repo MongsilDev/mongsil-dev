@@ -7,7 +7,7 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 
 export function Projects() {
   return (
-    <Section id="work" tone="light" className="pt-20 pb-12">
+    <Section id="work" tone="light" className="pt-20 pb-20">
       <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.015em]">
         Work
       </h2>
@@ -27,9 +27,12 @@ export function Projects() {
               href={r.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-full flex-col tile rounded-[20px] p-7"
+              className="group flex h-full flex-col tile rounded-[20px] p-7 transition-transform duration-200 hover:-translate-y-0.5"
             >
-              <span className="text-[19px] font-semibold tracking-[-0.01em]">{r.name}</span>
+              <span className="flex items-baseline justify-between gap-3 text-[19px] font-semibold tracking-[-0.01em]">
+                {r.name}
+                <Arrow />
+              </span>
               <span className="mt-1 text-[14px] text-fg-muted">{r.blurb}</span>
               <span className="mt-1 text-[13px] text-fg-muted">{r.stack}</span>
             </a>
@@ -48,10 +51,11 @@ function ProjectCard({ project }: { project: Project }) {
       href={project.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex h-full flex-col tile rounded-[28px] p-7"
+      className="group flex h-full flex-col tile rounded-[28px] p-7 transition-transform duration-200 hover:-translate-y-0.5"
     >
-      <h3 className="text-[32px] font-semibold leading-tight tracking-[-0.02em]">
+      <h3 className="flex items-baseline justify-between gap-3 text-[32px] font-semibold leading-tight tracking-[-0.02em]">
         {project.name}
+        <Arrow />
       </h3>
       <p className="mt-1.5 text-[17px] text-fg-muted">{project.blurb}</p>
       <p className="mt-1 text-[13px] text-fg-muted">{project.stack}</p>
@@ -62,5 +66,17 @@ function ProjectCard({ project }: { project: Project }) {
         {MONTHS[Number(project.since.slice(5, 7)) - 1]} {project.since.slice(0, 4)}
       </p>
     </a>
+  );
+}
+
+// 카드 전체가 외부 링크라는 표시, 호버 때 오른쪽 위로 밀림
+function Arrow() {
+  return (
+    <span
+      aria-hidden="true"
+      className="text-[17px] font-normal text-fg-muted transition-[color,transform] duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-fg"
+    >
+      ↗
+    </span>
   );
 }

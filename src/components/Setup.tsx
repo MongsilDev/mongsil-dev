@@ -4,7 +4,7 @@ import { ScrollCue } from "./ScrollCue";
 
 export function Setup() {
   return (
-    <Section id="setup" className="pt-20 pb-12">
+    <Section id="setup" className="pt-20 pb-20">
       <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.015em]">
         Setup
       </h2>
@@ -22,7 +22,7 @@ export function Setup() {
                   href={d.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline decoration-hairline underline-offset-4 transition-colors [-webkit-tap-highlight-color:transparent] after:absolute after:inset-0 group-hover:text-fg group-hover:decoration-fg"
+                  className="inline-block py-[3px] underline decoration-hairline underline-offset-4 transition-colors [-webkit-tap-highlight-color:transparent] after:absolute after:inset-0 group-hover:text-fg group-hover:decoration-fg"
                 >
                   {d.spec}
                 </a>

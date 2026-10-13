@@ -13,6 +13,7 @@ const SECTIONS = [
 
 export function SectionNav() {
   const [active, setActive] = useState(0);
+  const [light, setLight] = useState(false);
   // 스크롤 중 연타 시 active(IO 50% 진입 후 갱신)는 아직 옛 값이라 목표를 따로 기억.
   // 프로그램 스크롤이 중간 섹션을 지나는 동안엔 IO가 목표를 덮지 않는다.
   const targetRef = useRef(0);
@@ -41,6 +42,7 @@ export function SectionNav() {
           const idx = SECTIONS.findIndex((s) => s.id === entry.target.id);
           if (idx >= 0) {
             setActive(idx);
+            setLight(entry.target.getAttribute("data-tone") === "light");
             if (idx === targetRef.current) scrollingRef.current = false;
             if (!scrollingRef.current) targetRef.current = idx;
           }
@@ -98,8 +100,7 @@ export function SectionNav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [goTo]);
 
-  // 흰 점과 라벨을 difference 블렌드로 그려 밝은 섹션 위에서는 검게 뒤집힌다.
-  // 블렌드는 span에만 건다. nav나 button에 걸면 포커스 링까지 색이 뒤집힌다.
+  // fixed와 z-index가 쌓임 맥락을 만들어 mix-blend가 섹션 배경과 섞이지 않음. 활성 섹션 톤으로 색을 고름
   return (
     <nav
       aria-label="Sections"
@@ -114,12 +115,18 @@ export function SectionNav() {
           aria-current={active === i ? "true" : undefined}
           className="group relative flex cursor-pointer items-center justify-center rounded-full p-3"
         >
-          <span className="pointer-events-none absolute right-10 whitespace-nowrap text-[12px] text-white/70 opacity-0 mix-blend-difference transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+          <span
+            className={`pointer-events-none absolute right-10 whitespace-nowrap text-[12px] opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 ${
+              light ? "text-black/60" : "text-white/70"
+            }`}
+          >
             {s.label}
           </span>
           <span
-            className={`size-2 rounded-full mix-blend-difference transition-colors duration-200 ${
-              active === i ? "bg-white" : "bg-white/40 group-hover:bg-white/70"
+            className={`size-2 rounded-full transition-colors duration-200 ${
+              light
+                ? active === i ? "bg-[#1d1d1f]" : "bg-black/25 group-hover:bg-black/55"
+                : active === i ? "bg-white" : "bg-white/40 group-hover:bg-white/70"
             }`}
           />
         </button>

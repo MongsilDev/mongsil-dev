@@ -1,12 +1,11 @@
-import Image from "next/image";
 import { currentGames, favoriteGame, likedGames } from "@/data/games";
-import { COVER_VERSION, Cover, GameLink } from "./GameCover";
+import { Cover, CoverImage, GameLink } from "./GameCover";
 import { Section } from "./Section";
 import { ScrollCue } from "./ScrollCue";
 
 export function Favorites() {
   return (
-    <Section id="favorites" tone="light" className="pt-20 pb-12">
+    <Section id="favorites" tone="light" className="pt-20 pb-20">
       <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.015em]">
         Favorites
       </h2>
@@ -15,13 +14,11 @@ export function Favorites() {
         <div className="w-52 shrink-0 lg:w-[275px]">
           <Label>Favorite</Label>
           <GameLink game={favoriteGame}>
-            <Image
-              src={`/games/${favoriteGame.cover}.jpg?v=${COVER_VERSION}`}
-              alt={favoriteGame.name}
-              title={favoriteGame.name}
+            <CoverImage
+              game={favoriteGame}
               width={748}
               height={828}
-              loading="lazy"
+              sizes="(min-width: 1024px) 275px, 208px"
               className="aspect-[748/828] w-full rounded-[10px] object-cover"
             />
           </GameLink>
