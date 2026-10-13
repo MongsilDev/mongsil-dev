@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { currentGames, favoriteGame, likedGames } from "@/data/games";
-import { COVER_VERSION, Cover } from "./GameCover";
+import { COVER_VERSION, Cover, GameLink } from "./GameCover";
 import { Section } from "./Section";
 import { ScrollCue } from "./ScrollCue";
 
@@ -14,21 +14,23 @@ export function Favorites() {
       <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:gap-10">
         <div className="w-52 shrink-0 lg:w-[275px]">
           <Label>Favorite</Label>
-          <Image
-            src={`/games/${favoriteGame.cover}.jpg?v=${COVER_VERSION}`}
-            alt={favoriteGame.name}
-            title={favoriteGame.name}
-            width={748}
-            height={828}
-            loading="lazy"
-            className="aspect-[748/828] w-full rounded-[10px] object-cover"
-          />
+          <GameLink game={favoriteGame}>
+            <Image
+              src={`/games/${favoriteGame.cover}.jpg?v=${COVER_VERSION}`}
+              alt={favoriteGame.name}
+              title={favoriteGame.name}
+              width={748}
+              height={828}
+              loading="lazy"
+              className="aspect-[748/828] w-full rounded-[10px] object-cover"
+            />
+          </GameLink>
         </div>
 
-        <div className="min-w-0 lg:w-[432px]">
-          <Label>Liked</Label>
-          <ul className="grid grid-cols-4 gap-4">
-            {likedGames.map((g) => (
+        <div className="lg:w-24">
+          <Label>Now playing</Label>
+          <ul className="grid grid-cols-4 gap-4 lg:grid-cols-1">
+            {currentGames.map((g) => (
               <li key={g.cover}>
                 <Cover game={g} />
               </li>
@@ -36,10 +38,10 @@ export function Favorites() {
           </ul>
         </div>
 
-        <div className="lg:w-24">
-          <Label>Now playing</Label>
-          <ul className="grid grid-cols-4 gap-4 lg:grid-cols-1">
-            {currentGames.map((g) => (
+        <div className="min-w-0 lg:w-[432px]">
+          <Label>Liked</Label>
+          <ul className="grid grid-cols-4 gap-4">
+            {likedGames.map((g) => (
               <li key={g.cover}>
                 <Cover game={g} />
               </li>
