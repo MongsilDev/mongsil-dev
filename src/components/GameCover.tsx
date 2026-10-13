@@ -17,7 +17,7 @@ export function GameLink({ game, children }: { game: CoverGame; children: React.
   );
 }
 
-// public/games에 원본 폭의 절반과 원본 폭 두 가지 webp가 있음
+// public/games에 원본 폭, 절반, 4분의 1 세 가지 webp가 있음
 export function CoverImage({
   game,
   width,
@@ -32,12 +32,12 @@ export function CoverImage({
   className: string;
 }) {
   const src = (w: number) => `/games/${game.cover}-${w}.webp?v=${COVER_VERSION}`;
-  const half = width / 2;
+  const widths = [Math.floor(width / 4), width / 2, width];
   return (
     // eslint-disable-next-line @next/next/no-img-element -- 정적 export라 next/image 최적화가 없어 srcSet을 직접 씀
     <img
       src={src(width)}
-      srcSet={`${src(half)} ${half}w, ${src(width)} ${width}w`}
+      srcSet={widths.map((w) => `${src(w)} ${w}w`).join(", ")}
       sizes={sizes}
       alt={game.name}
       title={game.name}
