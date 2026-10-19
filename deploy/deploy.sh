@@ -10,6 +10,7 @@ set -euo pipefail
 HOST="macmini"
 
 cd "$(dirname "$0")/.."
+export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
 
 echo "==> 빌드"
 pnpm build
