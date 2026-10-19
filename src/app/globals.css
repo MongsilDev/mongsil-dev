@@ -74,6 +74,33 @@ html:has(main[data-page="privacy"]) {
   }
 }
 
+/* 처리방침 표: 좁은 화면에서는 행마다 칸 이름을 붙인 카드로 표시 */
+@media (max-width: 760px) {
+  .cards :is(table, tbody) {
+    display: block;
+  }
+  .cards thead {
+    display: none;
+  }
+  .cards tr {
+    display: block;
+    padding: 12px 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .cards td {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 10px;
+    padding: 3px 0 !important;
+    border: 0 !important;
+  }
+  .cards td::before {
+    content: attr(data-label);
+    color: var(--fg-muted);
+    font-size: 13px;
+  }
+}
+
 /* 404는 한 화면 고정: 스크롤, 바운스, 스냅 전부 끔 */
 html:has(main[data-page="404"]) {
   overflow: hidden;

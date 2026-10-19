@@ -30,7 +30,7 @@ export default function Privacy() {
       </ul>
 
       <h2 className={H2}>2. 처리 항목과 보유 기간</h2>
-      <div className="overflow-x-auto">
+      <div className="cards overflow-x-auto">
         <table className={TABLE}>
           <thead>
             <tr>
@@ -41,14 +41,14 @@ export default function Privacy() {
           </thead>
           <tbody>
             <tr>
-              <td>방문한 페이지 주소, 브라우저와 기기 정보, 방문 통계 쿠키 식별자</td>
-              <td>페이지를 조작하거나 10초 넘게 볼 때</td>
-              <td>수집일로부터 14개월</td>
+              <td data-label="항목">방문한 페이지 주소, 브라우저와 기기 정보, 방문 통계 쿠키 식별자</td>
+              <td data-label="수집 시점">페이지를 조작하거나 10초 넘게 볼 때</td>
+              <td data-label="보유 기간">수집일로부터 14개월</td>
             </tr>
             <tr>
-              <td>서버 접속 기록: 접속 IP 주소, 요청한 주소, 브라우저 정보</td>
-              <td>사이트에 접속할 때</td>
-              <td>기록이 100MB를 넘으면 오래된 것부터 지움</td>
+              <td data-label="항목">서버 접속 기록: 접속 IP 주소, 요청한 주소, 브라우저 정보</td>
+              <td data-label="수집 시점">사이트에 접속할 때</td>
+              <td data-label="보유 기간">기록이 100MB를 넘으면 오래된 것부터 지움</td>
             </tr>
           </tbody>
         </table>
@@ -65,7 +65,7 @@ export default function Privacy() {
       <p>개인정보를 다른 곳에 넘기거나 팔지 않습니다.</p>
 
       <h2 className={H2}>5. 처리 위탁과 국외 이전</h2>
-      <div className="overflow-x-auto">
+      <div className="cards overflow-x-auto">
         <table className={TABLE}>
           <thead>
             <tr>
@@ -76,13 +76,13 @@ export default function Privacy() {
           </thead>
           <tbody>
             <tr>
-              <td>
+              <td data-label="받는 곳">
                 Cloudflare
                 <br />
                 <span className="whitespace-nowrap">dpo@cloudflare.com</span>
               </td>
-              <td className="whitespace-nowrap">미국</td>
-              <td>
+              <td data-label="국가" className="whitespace-nowrap">미국</td>
+              <td data-label="업무와 항목">
                 사이트 접속 중계와 방문 통계.
                 <br />
                 접속 IP 주소, 요청 정보, 방문한 페이지 주소, 브라우저 종류가 접속할 때마다 전송됨.
@@ -93,13 +93,13 @@ export default function Privacy() {
               </td>
             </tr>
             <tr>
-              <td>
+              <td data-label="받는 곳">
                 Google LLC
                 <br />
                 <span className="whitespace-nowrap">googlekrsupport@google.com</span>
               </td>
-              <td className="whitespace-nowrap">미국</td>
-              <td>
+              <td data-label="국가" className="whitespace-nowrap">미국</td>
+              <td data-label="업무와 항목">
                 Google 애널리틱스 방문 통계 분석.
                 <br />
                 쿠키 식별자, 방문한 페이지 주소, 브라우저와 기기 정보, 접속 IP 주소가 페이지를 조작하거나 10초 넘게 볼 때 전송됨.
