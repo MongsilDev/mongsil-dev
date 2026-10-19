@@ -13,13 +13,13 @@
   아래에는 공개 레포 타일과 레포별 기술 스택 표시.\
   둘 다 `src/data/projects.ts`에 정의
 - play: Steam 플레이 시간 상위 게임.\
-  `src/data/games.ts`에 정의하며 수치를 잰 시점은 주석에 남김
+  `src/data/games.ts`에 Steam 프로필 실측값을 소수점 버림으로 정의
 - favorites: 가장 좋아하는 게임, 좋아하는 게임, 요즘 하는 게임 표지.\
   목록은 `src/data/games.ts`에, 표지 이미지는 `public/games`에 있음
 - setup: 쓰는 기기와 사양.\
   `src/data/devices.ts`에 정의
 - contact: GitHub와 메일 링크
-- 웹폰트 없이 기기 시스템 폰트만 사용
+- 글꼴은 `public/fonts/pretendard`의 Pretendard 가변 글꼴 동적 서브셋
 
 ## 동작 방식
 
