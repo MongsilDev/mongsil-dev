@@ -40,11 +40,8 @@
   --color-live: #30d158; /* running 점 (시스템 그린) */
   --color-cta: #0071e3; /* 로컬 내비 버튼 */
 
-  /* 한글 폰트는 system-ui 뒤에 둔다. 앞에 두면 Windows에서 라틴과 숫자까지
-     맑은 고딕(400/700만 있음)으로 잡혀 600 weight가 깨진다. */
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-    "SF Pro Text", system-ui, "Helvetica Neue", "Apple SD Gothic Neo",
-    "Malgun Gothic", sans-serif;
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", sans-serif;
 
   --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
 }

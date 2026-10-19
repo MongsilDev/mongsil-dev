@@ -78,6 +78,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
+        <link rel="stylesheet" href="/fonts/pretendard/pretendardvariable-dynamic-subset.css" />
+      </head>
       <body className="min-h-svh select-none bg-bg font-sans text-fg antialiased">
         <script
           type="application/ld+json"
