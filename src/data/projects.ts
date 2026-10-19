@@ -34,6 +34,7 @@ export const repos: Repo[] = [
 //  - bori.wiki: MediaWiki 대문 최초 생성 2024-09-30T18:03:50Z, 한국 시간 10월 1일
 //  - mongsil-bot: Discord 앱 ID snowflake 디코드 값 2023-06-15T05:54:18Z
 //  - ER Labs: 첫 커밋과 배포 2026-10-19 한국 시간
+//  - Tarkov Labs: 첫 커밋과 배포 2026-10-19 한국 시간
 export const projects: Project[] = [
   {
     name: "bori.wiki",
@@ -56,6 +57,14 @@ export const projects: Project[] = [
     blurb: "Eternal Return tools",
     stack: "Next.js, SQLite",
     href: "https://er.mongsil.dev",
+    live: true,
+    since: "2026-10-19",
+  },
+  {
+    name: "Tarkov Labs",
+    blurb: "Escape from Tarkov tools",
+    stack: "Next.js, SQLite",
+    href: "https://tarkov.mongsil.dev",
     live: true,
     since: "2026-10-19",
   },
