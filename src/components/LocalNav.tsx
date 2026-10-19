@@ -46,7 +46,7 @@ export function LocalNav() {
     >
       <nav
         aria-label="Page"
-        className="mx-auto flex h-12 max-w-[980px] items-center justify-between px-6"
+        className="mx-auto flex h-12 max-w-[980px] items-center justify-between px-6 sm:px-12"
       >
         <a
           href="#top"

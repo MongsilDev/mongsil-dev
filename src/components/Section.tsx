@@ -15,7 +15,7 @@ export function Section({
     <section
       id={id}
       data-tone={tone}
-      className={`relative flex min-h-svh snap-start flex-col justify-center bg-bg px-6 text-fg ${className}`}
+      className={`relative flex min-h-svh snap-start flex-col justify-center bg-bg px-6 text-fg sm:px-12 ${className}`}
     >
       <div className="mx-auto w-full max-w-[980px]">{children}</div>
     </section>
