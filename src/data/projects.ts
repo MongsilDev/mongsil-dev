@@ -46,7 +46,7 @@ export const projects: Project[] = [
     name: "mongsil-bot",
     blurb: "Eternal Return stats Discord bot",
     stack: "Python, discord.py",
-    href: "https://discord.com/discovery/applications/1118780504490131557",
+    href: "https://bot.mongsil.dev",
     live: true,
     since: "2023-06-15",
   },
