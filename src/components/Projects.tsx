@@ -12,7 +12,7 @@ export function Projects() {
         Work
       </h2>
 
-      <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+      <ul className="mt-8 grid gap-4 lg:grid-cols-3">
         {projects.map((p) => (
           <li key={p.name} className="reveal">
             <ProjectCard project={p} />
