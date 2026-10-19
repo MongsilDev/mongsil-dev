@@ -33,7 +33,7 @@ export const repos: Repo[] = [
 // since 실측 출처
 //  - bori.wiki: MediaWiki 대문 최초 생성 2024-09-30T18:03:50Z, 한국 시간 10월 1일
 //  - mongsil-bot: Discord 앱 ID snowflake 디코드 값 2023-06-15T05:54:18Z
-//  - er-tools: 첫 커밋과 배포 2026-10-19 한국 시간
+//  - ER Labs: 첫 커밋과 배포 2026-10-19 한국 시간
 export const projects: Project[] = [
   {
     name: "bori.wiki",
@@ -52,8 +52,8 @@ export const projects: Project[] = [
     since: "2023-06-15",
   },
   {
-    name: "er-tools",
-    blurb: "Eternal Return scoreboard",
+    name: "ER Labs",
+    blurb: "Eternal Return tools",
     stack: "Next.js, SQLite",
     href: "https://er.mongsil.dev",
     live: true,
