@@ -88,14 +88,15 @@ html:has(main[data-page="privacy"]) {
     border-top: 1px solid var(--hairline);
   }
   .cards td {
-    display: grid;
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: 10px;
-    padding: 3px 0 !important;
+    display: block;
+    position: relative;
+    padding: 3px 0 3px 82px !important;
     border: 0 !important;
   }
   .cards td::before {
     content: attr(data-label);
+    position: absolute;
+    left: 0;
     color: var(--fg-muted);
     font-size: 13px;
   }
