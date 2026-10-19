@@ -25,8 +25,8 @@ export default function Privacy() {
 
       <h2 className={H2}>1. 처리 목적</h2>
       <ul className="list-disc pl-5">
+        <li>오류 확인과 남용 방지</li>
         <li>방문 통계</li>
-        <li>서버 오류 확인과 남용 방지</li>
       </ul>
 
       <h2 className={H2}>2. 처리 항목과 보유 기간</h2>
@@ -55,7 +55,11 @@ export default function Privacy() {
       </div>
 
       <h2 className={H2}>3. 파기</h2>
-      <p>보유 기간이 지난 정보는 자동으로 지우며, 지운 정보는 되살릴 수 없습니다.</p>
+      <p>
+        보유 기간이 지난 정보는 자동으로 지웁니다.
+        <br />
+        지운 정보는 되살릴 수 없습니다.
+      </p>
 
       <h2 className={H2}>4. 제3자 제공</h2>
       <p>개인정보를 다른 곳에 넘기거나 팔지 않습니다.</p>
@@ -106,7 +110,11 @@ export default function Privacy() {
           </tbody>
         </table>
       </div>
-      <p className="mt-4">위 국외 이전은 서비스 제공에 필요한 처리 위탁이며, 개인정보 보호법 제28조의8 제1항 제3호에 따릅니다.</p>
+      <p className="mt-4">
+        위 국외 이전은 서비스 제공에 필요한 처리 위탁이며, 개인정보 보호법 제28조의8 제1항 제3호에 따릅니다.
+        <br />
+        Cloudflare를 거치지 않고는 사이트에 접속할 수 없으며, Google 애널리틱스 수집만 거부하는 방법은 6번 항목에 있습니다.
+      </p>
 
       <h2 className={H2}>6. 쿠키</h2>
       <ul className="list-disc pl-5">
@@ -124,7 +132,13 @@ export default function Privacy() {
         을 설치하면 됩니다.
       </p>
 
-      <h2 className={H2}>7. 정보주체의 권리</h2>
+      <h2 className={H2}>7. 안전 조치</h2>
+      <ul className="list-disc pl-5">
+        <li>운영자만 접근할 수 있는 서버에 저장</li>
+        <li>HTTPS 접속만 허용</li>
+      </ul>
+
+      <h2 className={H2}>8. 정보주체의 권리</h2>
       <p>
         언제든지 자신의 개인정보 열람, 정정, 삭제, 처리 정지를 요구할 수 있습니다.
         <br />
@@ -133,7 +147,7 @@ export default function Privacy() {
         만 14세 미만 아동의 권리는 법정대리인이 행사할 수 있습니다.
       </p>
 
-      <h2 className={H2}>8. 개인정보 보호책임자</h2>
+      <h2 className={H2}>9. 개인정보 보호책임자</h2>
       <p>
         몽실, mongsil.dev 운영자
         <br />
@@ -142,7 +156,7 @@ export default function Privacy() {
         </a>
       </p>
 
-      <h2 className={H2}>9. 권리 침해 상담</h2>
+      <h2 className={H2}>10. 권리 침해 상담</h2>
       <ul className="list-disc pl-5">
         <li>개인정보분쟁조정위원회: 1833-6972, www.kopico.go.kr</li>
         <li>개인정보침해신고센터: 118, privacy.kisa.or.kr</li>
@@ -150,7 +164,7 @@ export default function Privacy() {
         <li>경찰청: 182, ecrm.police.go.kr</li>
       </ul>
 
-      <h2 className={H2}>10. 변경</h2>
+      <h2 className={H2}>11. 변경</h2>
       <p>처리방침이 바뀌면 이 페이지에 시행일과 함께 올립니다.</p>
     </main>
   );
