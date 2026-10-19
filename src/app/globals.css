@@ -64,6 +64,16 @@ html {
   }
 }
 
+/* 처리방침은 긴 문서라 스냅을 끄고 스크롤바를 보임 */
+html:has(main[data-page="privacy"]) {
+  scroll-snap-type: none;
+  scrollbar-width: auto;
+
+  &::-webkit-scrollbar {
+    display: initial;
+  }
+}
+
 /* 404는 한 화면 고정: 스크롤, 바운스, 스냅 전부 끔 */
 html:has(main[data-page="404"]) {
   overflow: hidden;
