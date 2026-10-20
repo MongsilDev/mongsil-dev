@@ -13,10 +13,6 @@ export function Contact() {
         <ContactRow label="mail@mongsil.dev" href="mailto:mail@mongsil.dev" />
       </ul>
 
-      <a href="/privacy" className="mt-10 inline-block text-[14px] text-fg-muted hover:underline">
-        개인정보 처리방침
-      </a>
-
       <ScrollCue href="#top" label="Top" up />
     </Section>
   );
