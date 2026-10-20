@@ -42,13 +42,13 @@ export default function Privacy() {
           <tbody>
             <tr>
               <td data-label="항목">방문한 페이지 주소, 브라우저와 기기 정보, 방문 통계 쿠키 식별자</td>
-              <td data-label="수집 시점">페이지를 조작하거나 10초 넘게 볼 때</td>
+              <td data-label="수집 시점">페이지를 조작하거나 10초 넘게 머물 때</td>
               <td data-label="보유 기간">수집일로부터 14개월</td>
             </tr>
             <tr>
               <td data-label="항목">서버 접속 기록: 접속 IP 주소, 요청한 주소, 브라우저 정보</td>
               <td data-label="수집 시점">사이트에 접속할 때</td>
-              <td data-label="보유 기간">기록이 100MB를 넘으면 오래된 것부터 지움</td>
+              <td data-label="보유 기간">기록이 100MB를 넘으면 오래된 기록부터 삭제</td>
             </tr>
           </tbody>
         </table>
@@ -56,9 +56,9 @@ export default function Privacy() {
 
       <h2 className={H2}>3. 파기</h2>
       <p>
-        보유 기간이 지난 정보는 자동으로 지웁니다.
+        보유 기간이 지난 정보는 자동으로 파기합니다.
         <br />
-        지운 정보는 되살릴 수 없습니다.
+        파기한 정보는 복구할 수 없습니다.
       </p>
 
       <h2 className={H2}>4. 제3자 제공</h2>
@@ -69,14 +69,14 @@ export default function Privacy() {
         <table className={TABLE}>
           <thead>
             <tr>
-              <th scope="col">받는 곳</th>
+              <th scope="col">수탁자</th>
               <th scope="col" className="whitespace-nowrap">국가</th>
               <th scope="col">업무와 항목</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td data-label="받는 곳">
+              <td data-label="수탁자">
                 Cloudflare
                 <br />
                 <span className="whitespace-nowrap">dpo@cloudflare.com</span>
@@ -87,13 +87,13 @@ export default function Privacy() {
                 <br />
                 접속 IP 주소, 요청 정보, 방문한 페이지 주소, 브라우저 종류가 접속할 때마다 전송됨.
                 <br />
-                방문 통계는 쿠키를 쓰지 않음.
+                방문 통계는 쿠키를 사용하지 않음.
                 <br />
                 보유 기간은 Cloudflare 정책을 따름
               </td>
             </tr>
             <tr>
-              <td data-label="받는 곳">
+              <td data-label="수탁자">
                 Google LLC
                 <br />
                 <span className="whitespace-nowrap">googlekrsupport@google.com</span>
@@ -102,7 +102,7 @@ export default function Privacy() {
               <td data-label="업무와 항목">
                 Google 애널리틱스 방문 통계 분석.
                 <br />
-                쿠키 식별자, 방문한 페이지 주소, 브라우저와 기기 정보, 접속 IP 주소가 페이지를 조작하거나 10초 넘게 볼 때 전송됨.
+                쿠키 식별자, 방문한 페이지 주소, 브라우저와 기기 정보, 접속 IP 주소가 페이지를 조작하거나 10초 넘게 머물 때 전송됨.
                 <br />
                 보유 기간은 수집일로부터 14개월
               </td>
@@ -121,9 +121,9 @@ export default function Privacy() {
         <li>_ga, _ga_P0QQSS1SE5: Google 애널리틱스 방문자 구분, 최대 2년</li>
       </ul>
       <p className="mt-4">
-        광고 쿠키는 쓰지 않습니다.
+        광고 쿠키는 사용하지 않습니다.
         <br />
-        브라우저 설정에서 쿠키를 막아도 사이트는 그대로 볼 수 있습니다.
+        브라우저 설정에서 쿠키를 차단해도 사이트를 그대로 이용할 수 있습니다.
         <br />
         Google 애널리틱스의 수집만 거부하려면{" "}
         <a className="text-link hover:underline" href="https://tools.google.com/dlpage/gaoptout">
@@ -142,7 +142,7 @@ export default function Privacy() {
       <p>
         언제든지 자신의 개인정보 열람, 정정, 삭제, 처리 정지를 요구할 수 있습니다.
         <br />
-        아래 이메일로 보내 주시면 본인 확인 뒤 바로 처리합니다.
+        아래 이메일로 요청하면 본인 확인 후 지체 없이 처리합니다.
         <br />
         만 14세 미만 아동의 권리는 법정대리인이 행사할 수 있습니다.
       </p>
@@ -165,7 +165,7 @@ export default function Privacy() {
       </ul>
 
       <h2 className={H2}>11. 변경</h2>
-      <p>처리방침이 바뀌면 이 페이지에 시행일과 함께 올립니다.</p>
+      <p>처리방침을 변경하면 이 페이지에 시행일과 함께 게시합니다.</p>
     </main>
   );
 }
