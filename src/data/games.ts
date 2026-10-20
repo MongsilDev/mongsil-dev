@@ -19,7 +19,7 @@ export const games: Game[] = [
 export const steamProfile = "https://steamcommunity.com/id/MongsilDev";
 
 // Discord 프로필 보드 위젯 기준, 공개 API가 없어 수동 동기화
-// cover는 public/games 파일명, 원본은 Steam 라이브러리 세로 표지, tarkov만 배너를 잘라낸 hero capsule
+// cover는 public/games 파일명에서 -폭.webp 앞부분, 원본은 Steam 라이브러리 세로 표지, tarkov만 배너를 잘라낸 hero capsule
 export type FavoriteGame = {
   name: string;
   cover: string;
