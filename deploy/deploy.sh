@@ -3,7 +3,7 @@
 #
 # nginx 컨테이너가 ~/docker/mongsil-dev/out 을 볼륨으로 직접 읽으므로
 # 파일만 갱신하면 즉시 반영된다 (컨테이너 재시작 불필요).
-# 디렉토리를 mv/교체하면 바인드 마운트가 깨지므로 반드시 rsync로 "안에다" 동기화한다.
+# 디렉토리를 mv/교체하면 바인드 마운트가 옛 디렉토리를 계속 가리키므로 반드시 rsync로 "안에다" 동기화한다.
 
 set -euo pipefail
 
@@ -17,7 +17,7 @@ pnpm build
 
 echo "==> Mac mini 동기화 ($HOST:~/docker/mongsil-dev/out)"
 # 뒤 슬래시 필수: out/ 내용만 동기화, 삭제는 전송 완료 뒤 --delete-after
-# 옛 HTML이 사라진 청크를 참조하는 창을 없앤다
+# 옛 HTML이 삭제된 청크를 참조하는 시간을 없앤다
 rsync -az --delete-after out/ "$HOST:docker/mongsil-dev/out/"
 
 # Cloudflare가 HTML까지 거점에 하루 캐시하므로 배포 뒤 비우고 다시 채운다.
@@ -31,7 +31,7 @@ if [ -z "$token" ]; then
 elif curl -s -X POST -H "Authorization: Bearer $token" -H "Content-Type: application/json" \
     "https://api.cloudflare.com/client/v4/zones/$ZONE/purge_cache" -d '{"hosts":["mongsil.dev"]}' | grep -q '"success":true'; then
   echo "  비움. 거점 캐시를 다시 채움"
-  # 비우기가 퍼지는 데 몇 초 걸리고, 한 거점에도 서버가 여러 대라 간격을 두고 여러 번 요청해 둔다
+  # 비우기가 전파되는 데 몇 초 걸리고, 한 거점에도 서버가 여러 대라 간격을 두고 여러 번 요청해 둔다
   sleep 5
   for _ in 1 2 3 4 5 6 7 8; do
     curl -s -o /dev/null "https://mongsil.dev/"

@@ -1,4 +1,4 @@
-// 표지 파일을 같은 이름으로 교체하면 올릴 것, CDN과 브라우저 12시간 캐시
+// 표지 파일을 같은 이름으로 교체하면 이 값을 올릴 것, CDN과 브라우저 12시간 캐시
 export const COVER_VERSION = 3;
 
 type CoverGame = { name: string; cover: string; site: string };

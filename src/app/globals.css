@@ -92,7 +92,7 @@ html:has(main[data-page="404"]) {
 }
 
 /* 키보드 포커스 링. 마우스엔 안 보이고 키보드에만.
-   base 레이어에 둬야 요소의 rounded-* 유틸리티가 링 모양을 이긴다. */
+   base 레이어에 둬야 요소의 rounded-* 유틸리티가 링 모양보다 우선한다. */
 @layer base {
   :focus-visible {
     outline: 2px solid var(--link);
@@ -103,7 +103,7 @@ html:has(main[data-page="404"]) {
 
 /* ── 진입 애니메이션 (로드 시) ────────────────────────────────
    keyframes로 두면 요소의 transition-* 유틸리티(호버 색 전환)와 충돌하지 않는다.
-   reduced-motion은 그냥 보임. */
+   reduced-motion은 애니메이션 없이 표시. */
 @media (prefers-reduced-motion: no-preference) {
   .rise {
     animation: rise 700ms var(--ease-out) both;

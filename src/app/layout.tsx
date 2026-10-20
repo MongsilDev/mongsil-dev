@@ -5,7 +5,7 @@ import "./globals.css";
 const GA_ID = "G-P0QQSS1SE5";
 const WA_TOKEN = "8c0dac15421b4c3088e1b8998bfe6ee0";
 
-// 페이지만 열고 나가는 봇이 GA와 Web Analytics에 찍히지 않게, 입력이나 10초 체류 뒤에만 불러옴
+// 페이지만 열고 나가는 봇이 GA와 Web Analytics에 기록되지 않게, 입력이나 10초 체류 뒤에만 불러옴
 const analytics = `(function(){
 if(navigator.webdriver)return;
 var ev=['pointerdown','keydown','scroll','touchstart','mousemove'],timer,done=false;

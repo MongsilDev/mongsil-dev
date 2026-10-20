@@ -15,7 +15,7 @@ export function SectionNav() {
   const [active, setActive] = useState(0);
   const [light, setLight] = useState(false);
   // 스크롤 중 연타 시 active(IO 50% 진입 후 갱신)는 아직 옛 값이라 목표를 따로 기억.
-  // 프로그램 스크롤이 중간 섹션을 지나는 동안엔 IO가 목표를 덮지 않는다.
+  // 프로그램 스크롤이 중간 섹션을 지나는 동안엔 IO가 목표를 덮어쓰지 않는다.
   const targetRef = useRef(0);
   const scrollingRef = useRef(false);
 
@@ -28,7 +28,7 @@ export function SectionNav() {
     el.scrollIntoView(); // smooth/auto는 html의 scroll-behavior가 결정
   }, []);
 
-  // 현재 화면에 걸린 섹션을 활성으로
+  // 현재 화면에 절반 이상 보이는 섹션을 활성으로
   useEffect(() => {
     const els = SECTIONS.map((s) => document.getElementById(s.id)).filter(
       (el): el is HTMLElement => el !== null,
@@ -54,7 +54,7 @@ export function SectionNav() {
     return () => io.disconnect();
   }, []);
 
-  // 휠/드래그로 프로그램 스크롤이 끊긴 경우: 멈춘 자리를 목표로 삼는다
+  // 휠/드래그로 프로그램 스크롤이 중단된 경우: 멈춘 자리를 목표로 삼는다
   useEffect(() => {
     const onEnd = () => {
       scrollingRef.current = false;
@@ -68,7 +68,7 @@ export function SectionNav() {
     return () => window.removeEventListener("scrollend", onEnd);
   }, []);
 
-  // 키보드: ↑/↓, PageUp/Down, Home/End 로 섹션 이동
+  // 키보드: 위아래 방향키, PageUp/Down, Home/End 로 섹션 이동
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;

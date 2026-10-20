@@ -69,7 +69,7 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-// 카드 전체가 외부 링크라는 표시, 호버 때 오른쪽 위로 밀림
+// 카드 전체가 외부 링크라는 표시, 호버 때 오른쪽 위로 이동
 function Arrow() {
   return (
     <span
