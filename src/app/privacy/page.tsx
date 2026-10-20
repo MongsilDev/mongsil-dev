@@ -62,7 +62,7 @@ export default function Privacy() {
       </p>
 
       <h2 className={H2}>4. 제3자 제공</h2>
-      <p>개인정보를 다른 곳에 넘기거나 팔지 않습니다.</p>
+      <p>수집한 개인정보는 제3자에게 제공하거나 판매하지 않습니다.</p>
 
       <h2 className={H2}>5. 처리 위탁과 국외 이전</h2>
       <div className="cards overflow-x-auto">
