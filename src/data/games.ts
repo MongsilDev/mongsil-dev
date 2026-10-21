@@ -1,20 +1,36 @@
+import steam from "./steam.json";
+
 export type Game = {
   name: string;
-  hours: string; // 누적 플레이 시간 실측값, 천 단위 콤마
+  hours: string; // 누적 플레이 시간, 천 단위 콤마
   cover: string;
   site: string; // 공식 사이트
 };
 
-// Steam 프로필 실측값, 소수점 버림
+type Known = Omit<Game, "hours"> & { appid: number; hours: number };
+
+// 순서와 시간은 빌드 때 scripts/steam-sync.mjs가 받은 steam.json을 따르고, 못 받으면 아래 값을 씀
 // 게임명은 영문 공식 표기
-export const games: Game[] = [
-  { name: "Eternal Return", hours: "7,488", cover: "eternalreturn", site: "https://playeternalreturn.com/" },
-  { name: "Rainbow Six Siege", hours: "1,277", cover: "r6siege", site: "https://www.ubisoft.com/en-us/game/rainbow-six/siege" },
-  { name: "Apex Legends", hours: "815", cover: "apex", site: "https://www.ea.com/games/apex-legends" },
-  { name: "PUBG: BATTLEGROUNDS", hours: "185", cover: "pubg", site: "https://pubg.com/" },
-  { name: "Palworld", hours: "172", cover: "palworld", site: "https://www.pocketpair.jp/palworld/" },
-  { name: "Counter-Strike 2", hours: "170", cover: "cs2", site: "https://www.counter-strike.net/cs2" },
+const known: Known[] = [
+  { appid: 1049590, name: "Eternal Return", hours: 7493, cover: "eternalreturn", site: "https://playeternalreturn.com/" },
+  { appid: 359550, name: "Rainbow Six Siege", hours: 1277, cover: "r6siege", site: "https://www.ubisoft.com/en-us/game/rainbow-six/siege" },
+  { appid: 1172470, name: "Apex Legends", hours: 815, cover: "apex", site: "https://www.ea.com/games/apex-legends" },
+  { appid: 578080, name: "PUBG: BATTLEGROUNDS", hours: 185, cover: "pubg", site: "https://pubg.com/" },
+  { appid: 1623730, name: "Palworld", hours: 172, cover: "palworld", site: "https://www.pocketpair.jp/palworld/" },
+  { appid: 730, name: "Counter-Strike 2", hours: 170, cover: "cs2", site: "https://www.counter-strike.net/cs2" },
 ];
+
+const played: { appid: number; name: string; hours: number }[] = steam.length ? steam : known;
+
+export const games: Game[] = played.map((g) => {
+  const k = known.find((x) => x.appid === g.appid);
+  return {
+    name: k?.name ?? g.name,
+    hours: g.hours.toLocaleString("en-US"),
+    cover: k?.cover ?? `steam-${g.appid}`,
+    site: k?.site ?? `https://store.steampowered.com/app/${g.appid}/`,
+  };
+});
 
 export const steamProfile = "https://steamcommunity.com/id/MongsilDev";
 

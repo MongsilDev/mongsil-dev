@@ -6,8 +6,8 @@
     "node": ">=24 <25"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/steam-sync.mjs && next dev",
+    "build": "node scripts/steam-sync.mjs && next build",
     "lint": "eslint"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
     "@types/react-dom": "^19",
     "eslint": "9.39.5",
     "eslint-config-next": "16.4.2",
+    "sharp": "0.35.5",
     "tailwindcss": "4.3.3",
     "typescript": "5.9.3"
   }
