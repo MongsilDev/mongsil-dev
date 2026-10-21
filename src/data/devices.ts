@@ -18,9 +18,14 @@ export const devices: Device[] = [
     href: "https://geon.works/products/venom-tkl-he-pcb",
   },
   {
-    name: "G Pro X2 Superstrike",
-    spec: "HITS switches, HERO 2, LIGHTSPEED",
-    href: "https://www.logitechg.com/en-us/shop/p/pro-x2-superstrike-mouse",
+    name: "G Pro X3 Superstrike",
+    spec: "HITS switches, NxLOGI chipset, LIGHTSPEED",
+    href: "https://www.logitechg.com/en-us/shop/p/pro-x3-superstrike-mouse",
+  },
+  {
+    name: "G Pro X3 Lightspeed",
+    spec: "50mm graphene drivers, LIGHTSPEED, Bluetooth",
+    href: "https://www.logitechg.com/en-us/shop/p/pro-x3-lightspeed",
   },
   {
     name: "Synology DS220+",
