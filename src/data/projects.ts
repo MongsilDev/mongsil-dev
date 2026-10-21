@@ -36,6 +36,14 @@ export const repos: Repo[] = [
 //  - Labs: 첫 커밋과 배포 2026-10-19 한국 시간
 export const projects: Project[] = [
   {
+    name: "Labs",
+    blurb: "Eternal Return and Escape from Tarkov tools",
+    stack: "Next.js, SQLite",
+    href: "https://labs.mongsil.dev",
+    live: true,
+    since: "2026-10-19",
+  },
+  {
     name: "bori.wiki",
     blurb: "Eternal Return esports wiki",
     stack: "MediaWiki, MariaDB",
@@ -50,13 +58,5 @@ export const projects: Project[] = [
     href: "https://bot.mongsil.dev",
     live: true,
     since: "2023-06-15",
-  },
-  {
-    name: "Labs",
-    blurb: "Eternal Return and Escape from Tarkov tools",
-    stack: "Next.js, SQLite",
-    href: "https://labs.mongsil.dev",
-    live: true,
-    since: "2026-10-19",
   },
 ];
