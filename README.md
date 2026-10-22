@@ -27,7 +27,7 @@ Next.js 16 App Router를 `output: "export"` 설정으로 빌드해 정적 결과
 시계는 브라우저에서 매초 갱신합니다.\
 프로젝트, favorites 게임, 기기 목록은 코드에 정의되어 있어, 목록을 고친 뒤 다시 빌드하면 사이트에 반영됩니다.
 
-play의 순서와 시간은 `pnpm build`와 `pnpm dev`가 먼저 실행하는 `scripts/steam-sync.mjs`가 Steam API `GetOwnedGames`에서 상위 6개를 받아 `src/data/steam.json`에 씁니다.\
+`pnpm build`와 `pnpm dev`는 먼저 `scripts/steam-sync.mjs`를 실행해, Steam API `GetOwnedGames`에서 play에 표시할 상위 6개 게임과 시간을 받아 `src/data/steam.json`에 씁니다.\
 키가 없거나 응답을 받지 못하면 마지막으로 받은 `steam.json`을 그대로 쓰고, 받은 적이 없으면 `src/data/games.ts`의 대체값을 씁니다.\
 `games.ts`에 없는 게임은 Steam 이름과 상점 링크를 쓰고, 표지는 Steam 세로 표지로 만들어 `public/games`에 저장합니다.\
 매일 05:20에 `deploy/steam-refresh.sh`가 값을 다시 받아, 값이 바뀐 날에만 다시 배포합니다.
