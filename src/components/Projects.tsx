@@ -1,5 +1,4 @@
 import { projects, repos, type Project } from "@/data/projects";
-import { Dot } from "./StatusDot";
 import { Section } from "./Section";
 import { ScrollCue } from "./ScrollCue";
 
@@ -60,10 +59,8 @@ function ProjectCard({ project }: { project: Project }) {
       <p className="mt-1.5 text-[17px] text-fg-muted">{project.blurb}</p>
       <p className="mt-1 text-[13px] text-fg-muted">{project.stack}</p>
 
-      <p className="mt-auto flex items-center gap-1.5 pt-6 text-[13px] text-fg-muted">
-        <Dot live={project.live} />
-        {project.live ? "Running" : "Stopped"} since{" "}
-        {MONTHS[Number(project.since.slice(5, 7)) - 1]} {project.since.slice(0, 4)}
+      <p className="mt-auto pt-6 text-[13px] text-fg-muted">
+        Since {MONTHS[Number(project.since.slice(5, 7)) - 1]} {project.since.slice(0, 4)}
       </p>
     </a>
   );

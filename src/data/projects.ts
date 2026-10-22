@@ -3,7 +3,6 @@ export type Project = {
   blurb: string;
   stack: string;
   href: string;
-  live: boolean; // 상태 점 색, running 여부
   since: string; // 가동 시작일 ISO, 한국 시간 기준
 };
 
@@ -40,7 +39,6 @@ export const projects: Project[] = [
     blurb: "Eternal Return and Escape from Tarkov tools",
     stack: "Next.js, SQLite",
     href: "https://labs.mongsil.dev",
-    live: true,
     since: "2026-10-19",
   },
   {
@@ -48,7 +46,6 @@ export const projects: Project[] = [
     blurb: "Eternal Return esports wiki",
     stack: "MediaWiki, MariaDB",
     href: "https://bori.wiki",
-    live: true,
     since: "2024-10-01",
   },
   {
@@ -56,7 +53,6 @@ export const projects: Project[] = [
     blurb: "Eternal Return stats Discord bot",
     stack: "Python, discord.py",
     href: "https://bot.mongsil.dev",
-    live: true,
     since: "2023-06-15",
   },
 ];

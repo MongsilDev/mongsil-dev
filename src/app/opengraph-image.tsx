@@ -24,21 +24,11 @@ export default function OpengraphImage() {
         <div
           style={{
             display: "flex",
-            alignItems: "center",
-            gap: 16,
             color: "#86868b",
             fontSize: 30,
           }}
         >
-          <div
-            style={{
-              width: 20,
-              height: 20,
-              borderRadius: 999,
-              background: "#30d158",
-            }}
-          />
-          seoul, korea
+          Seoul, Korea
         </div>
         <div
           style={{

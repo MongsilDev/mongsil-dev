@@ -9,7 +9,6 @@ export default function NotFound() {
       <p className="text-[clamp(7rem,28vw,16rem)] font-semibold leading-none tracking-[-0.04em] text-fg">
         404
       </p>
-      <p className="mt-3 text-[17px] text-fg-muted">Not Found</p>
       <Link href="/" className="mt-12 text-[17px] text-link hover:underline">
         Back to home <span aria-hidden="true">›</span>
       </Link>
