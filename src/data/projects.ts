@@ -36,7 +36,7 @@ export const repos: Repo[] = [
 export const projects: Project[] = [
   {
     name: "Labs",
-    blurb: "Eternal Return and Escape from Tarkov tools",
+    blurb: "Eternal Return and Tarkov tools",
     stack: "Next.js, SQLite",
     href: "https://labs.mongsil.dev",
     since: "2026-10-19",
