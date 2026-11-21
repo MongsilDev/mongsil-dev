@@ -65,7 +65,7 @@ export function LocalNav() {
               key={l.id}
               href={`#${l.id}`}
               onClick={(e) => jump(e, l.id)}
-              className="hidden text-xs text-[#f5f5f7]/80 transition-colors hover:text-[#f5f5f7] sm:inline"
+              className="hidden py-1.5 text-xs text-[#f5f5f7]/80 transition-colors hover:text-[#f5f5f7] sm:inline-block"
             >
               {l.label}
             </a>

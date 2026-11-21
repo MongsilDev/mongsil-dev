@@ -11,17 +11,19 @@ export function Favorites() {
       </h2>
 
       <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:gap-10">
-        <div className="w-52 shrink-0 lg:w-[275px]">
+        <div className="shrink-0 lg:w-[275px]">
           <Label>Favorite</Label>
-          <GameLink game={favoriteGame}>
-            <CoverImage
-              game={favoriteGame}
-              width={748}
-              height={828}
-              sizes="(min-width: 1024px) 275px, 208px"
-              className="aspect-[748/828] w-full rounded-[10px] object-cover"
-            />
-          </GameLink>
+          <div className="w-52 lg:w-full">
+            <GameLink game={favoriteGame}>
+              <CoverImage
+                game={favoriteGame}
+                width={748}
+                height={828}
+                sizes="(min-width: 1024px) 275px, 208px"
+                className="aspect-[748/828] w-full rounded-[10px] object-cover"
+              />
+            </GameLink>
+          </div>
         </div>
 
         <div className="lg:w-24">
