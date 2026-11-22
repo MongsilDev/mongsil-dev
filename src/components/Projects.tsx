@@ -6,6 +6,9 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 
 const ROW =
   "group grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 border-t border-hairline lg:grid-cols-[minmax(0,5fr)_minmax(0,5fr)_7rem]";
+// 줄 전체가 링크임을 다른 구역의 링크와 같은 파란 「›」로 알립니다.
+const CHEVRON =
+  "inline-block font-normal text-link transition-transform group-hover:translate-x-1 motion-reduce:transition-none";
 const NOTE = "text-right text-[14px] text-fg-muted tabular-nums";
 
 export function Projects() {
@@ -20,7 +23,7 @@ export function Projects() {
           <li key={p.name}>
             <a href={p.href} target="_blank" rel="noopener noreferrer" className={`${ROW} py-5`}>
               <h3 className="text-[clamp(1.625rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.015em] transition-colors group-hover:text-link">
-                {p.name}
+                {p.name} <span aria-hidden="true" className={CHEVRON}>›</span>
               </h3>
               <p className={`${NOTE} lg:order-last`}>
                 Since {MONTHS[Number(p.since.slice(5, 7)) - 1]} {p.since.slice(0, 4)}
@@ -36,7 +39,7 @@ export function Projects() {
           <li key={r.name}>
             <a href={r.href} target="_blank" rel="noopener noreferrer" className={`${ROW} py-3.5`}>
               <h3 className="text-[21px] font-semibold tracking-[-0.01em] transition-colors group-hover:text-link">
-                {r.name}
+                {r.name} <span aria-hidden="true" className={CHEVRON}>›</span>
               </h3>
               <p className="col-span-2 mt-0.5 text-[15px] lg:col-span-1 lg:mt-0">
                 {r.blurb}
