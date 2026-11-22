@@ -19,7 +19,7 @@ export function Projects() {
         {projects.map((p) => (
           <li key={p.name}>
             <a href={p.href} target="_blank" rel="noopener noreferrer" className={`${ROW} py-5`}>
-              <h3 className="text-[clamp(2rem,4.4vw,3.25rem)] font-semibold leading-[1.1] tracking-[-0.02em] transition-colors group-hover:text-link">
+              <h3 className="text-[clamp(1.625rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.015em] transition-colors group-hover:text-link">
                 {p.name}
               </h3>
               <p className={`${NOTE} lg:order-last`}>
@@ -38,7 +38,6 @@ export function Projects() {
               <h3 className="text-[21px] font-semibold tracking-[-0.01em] transition-colors group-hover:text-link">
                 {r.name}
               </h3>
-              <p className={`${NOTE} lg:order-last`}>GitHub</p>
               <p className="col-span-2 mt-0.5 text-[15px] lg:col-span-1 lg:mt-0">
                 {r.blurb}
                 <span className="block text-[14px] text-fg-muted">{r.stack}</span>

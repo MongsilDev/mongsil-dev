@@ -125,7 +125,7 @@ export function SectionNav() {
           <span
             className={`size-2 rounded-full transition-colors duration-200 ${
               light
-                ? active === i ? "bg-[#1d1d1f]" : "bg-black/25 group-hover:bg-black/55"
+                ? active === i ? "bg-[#1d1d1f]" : "bg-black/45 group-hover:bg-black/70"
                 : active === i ? "bg-white" : "bg-white/40 group-hover:bg-white/70"
             }`}
           />

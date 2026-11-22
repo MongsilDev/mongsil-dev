@@ -9,7 +9,7 @@ export function Contact() {
       </h2>
 
       <ul className="mt-8 flex flex-col gap-3">
-        <ContactRow label="github.com/MongsilDev" href="https://github.com/MongsilDev" />
+        <ContactRow label="GitHub" href="https://github.com/MongsilDev" />
         <ContactRow label="mail@mongsil.dev" href="mailto:mail@mongsil.dev" />
       </ul>
 
