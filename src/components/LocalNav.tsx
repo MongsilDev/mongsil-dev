@@ -86,14 +86,6 @@ export function LocalNav() {
               <path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-          <a
-            href="https://github.com/MongsilDev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-cta px-3 py-1 text-xs text-white transition-colors hover:bg-[#0077ed]"
-          >
-            GitHub
-          </a>
         </div>
       </nav>
 

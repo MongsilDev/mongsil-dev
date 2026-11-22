@@ -24,7 +24,7 @@ function ContactRow({ label, href }: { label: string; href: string }) {
     <li>
       <a
         href={href}
-        className="text-[clamp(1.3125rem,2.4vw,1.75rem)] text-link hover:underline"
+        className="text-[clamp(1.5rem,3.6vw,2.5rem)] tracking-[-0.01em] text-link hover:underline"
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         <span className="select-text">{label}</span> <span aria-hidden="true">›</span>

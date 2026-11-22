@@ -1,8 +1,12 @@
-import { projects, repos, type Project } from "@/data/projects";
+import { projects, repos } from "@/data/projects";
 import { Section } from "./Section";
 import { ScrollCue } from "./ScrollCue";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+const ROW =
+  "group grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 border-t border-hairline lg:grid-cols-[minmax(0,5fr)_minmax(0,5fr)_7rem]";
+const NOTE = "text-right text-[14px] text-fg-muted tabular-nums";
 
 export function Projects() {
   return (
@@ -11,29 +15,34 @@ export function Projects() {
         Work
       </h2>
 
-      <ul className="mt-8 grid gap-4 lg:grid-cols-3">
+      <ul className="mt-8 border-b border-hairline">
         {projects.map((p) => (
-          <li key={p.name} className="reveal">
-            <ProjectCard project={p} />
+          <li key={p.name}>
+            <a href={p.href} target="_blank" rel="noopener noreferrer" className={`${ROW} py-5`}>
+              <h3 className="text-[clamp(2rem,4.4vw,3.25rem)] font-semibold leading-[1.1] tracking-[-0.02em] transition-colors group-hover:text-link">
+                {p.name}
+              </h3>
+              <p className={`${NOTE} lg:order-last`}>
+                Since {MONTHS[Number(p.since.slice(5, 7)) - 1]} {p.since.slice(0, 4)}
+              </p>
+              <p className="col-span-2 mt-1 text-[17px] lg:col-span-1 lg:mt-0 lg:text-[19px]">
+                {p.blurb}
+                <span className="block text-[14px] text-fg-muted">{p.stack}</span>
+              </p>
+            </a>
           </li>
         ))}
-      </ul>
-
-      <ul className="mt-4 grid gap-4 sm:grid-cols-2">
         {repos.map((r) => (
           <li key={r.name}>
-            <a
-              href={r.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex h-full flex-col tile rounded-[20px] p-7 transition-transform duration-200 hover:-translate-y-0.5"
-            >
-              <span className="flex items-baseline justify-between gap-3 text-[19px] font-semibold tracking-[-0.01em]">
+            <a href={r.href} target="_blank" rel="noopener noreferrer" className={`${ROW} py-3.5`}>
+              <h3 className="text-[21px] font-semibold tracking-[-0.01em] transition-colors group-hover:text-link">
                 {r.name}
-                <Arrow />
-              </span>
-              <span className="mt-1 text-[14px] text-fg-muted">{r.blurb}</span>
-              <span className="mt-1 text-[13px] text-fg-muted">{r.stack}</span>
+              </h3>
+              <p className={`${NOTE} lg:order-last`}>GitHub</p>
+              <p className="col-span-2 mt-0.5 text-[15px] lg:col-span-1 lg:mt-0">
+                {r.blurb}
+                <span className="block text-[14px] text-fg-muted">{r.stack}</span>
+              </p>
             </a>
           </li>
         ))}
@@ -41,39 +50,5 @@ export function Projects() {
 
       <ScrollCue href="#play" label="Play" />
     </Section>
-  );
-}
-
-function ProjectCard({ project }: { project: Project }) {
-  return (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex h-full flex-col tile rounded-[28px] p-7 transition-transform duration-200 hover:-translate-y-0.5"
-    >
-      <h3 className="flex items-baseline justify-between gap-3 text-[32px] font-semibold leading-tight tracking-[-0.02em]">
-        {project.name}
-        <Arrow />
-      </h3>
-      <p className="mt-1.5 text-[17px] text-fg-muted">{project.blurb}</p>
-      <p className="mt-1 text-[13px] text-fg-muted">{project.stack}</p>
-
-      <p className="mt-auto pt-6 text-[13px] text-fg-muted">
-        Since {MONTHS[Number(project.since.slice(5, 7)) - 1]} {project.since.slice(0, 4)}
-      </p>
-    </a>
-  );
-}
-
-// 카드 전체가 외부 링크라는 표시, 호버 때 오른쪽 위로 이동
-function Arrow() {
-  return (
-    <span
-      aria-hidden="true"
-      className="text-[17px] font-normal text-fg-muted transition-[color,transform] duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-fg"
-    >
-      ↗
-    </span>
   );
 }
