@@ -29,7 +29,7 @@ token="$(grep -oE 'cfat_[A-Za-z0-9]+' "$TOKEN_FILE" 2>/dev/null | head -1 || tru
 if [ -z "$token" ]; then
   echo "  토큰이 없어 건너뜀. 대시보드에서 mongsil.dev 캐시를 비워 주세요"
 elif curl -s -X POST -H "Authorization: Bearer $token" -H "Content-Type: application/json" \
-    "https://api.cloudflare.com/client/v4/zones/$ZONE/purge_cache" -d '{"hosts":["mongsil.dev"]}' | grep -q '"success":true'; then
+    "https://api.cloudflare.com/client/v4/zones/$ZONE/purge_cache" -d '{"hosts":["mongsil.dev","root-origin.mongsil.dev"]}' | grep -q '"success":true'; then
   echo "  비움. 거점 캐시를 다시 채움"
   # 비우기가 전파되는 데 몇 초 걸리고, 한 거점에도 서버가 여러 대라 간격을 두고 여러 번 요청해 둔다
   sleep 5
